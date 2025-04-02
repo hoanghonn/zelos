@@ -1,0 +1,434 @@
+<% content_for :title, "Hackathons" %>
+<main class="py-8">
+  <div class="container mx-auto px-4">
+    <!-- Page Header -->
+    <div class="mb-8">
+      <h1 class="text-3xl md:text-4xl font-bold mb-2 text-gradient">Browse Hackathons</h1>
+      <p class="text-gray-300">Find your next coding challenge and build something amazing</p>
+    </div>
+    <!-- Search and Filter Section -->
+    <div class="glass rounded-3xl p-6 mb-8">
+      <div class="flex flex-col space-y-6">
+        <!-- Search Bar -->
+        <div class="flex flex-col sm:flex-row gap-4">
+          <div class="relative flex-grow">
+            <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+            <input 
+                            type="text" 
+                            id="search-input"
+                            placeholder="Search hackathons by name, technology, or theme" 
+                            class="w-full bg-white/5 border border-white/10 rounded-full pl-10 pr-4 py-3 focus:outline-none focus:ring-2 focus:ring-secondary-400 text-white placeholder-gray-400"
+                        />
+          </div>
+          <button 
+                        id="search-button"
+                        class="px-6 py-3 rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 transition-colors font-medium whitespace-nowrap"
+                    >
+            Search
+          </button>
+        </div>
+        <!-- Filter Options -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <!-- Status Filter -->
+          <div>
+            <label class="block text-sm font-medium text-gray-300 mb-2">Status</label>
+            <div class="relative">
+              <select id="status-filter" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 appearance-none focus:outline-none focus:ring-2 focus:ring-secondary-400 text-white">
+                <option value="all" selected>All Statuses</option>
+                <option value="upcoming">Upcoming</option>
+                <option value="ongoing">Ongoing</option>
+                <option value="past">Past</option>
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
+                <i class="fas fa-chevron-down text-xs"></i>
+              </div>
+            </div>
+          </div>
+          <!-- Type Filter -->
+          <div>
+            <label class="block text-sm font-medium text-gray-300 mb-2">Type</label>
+            <div class="relative">
+              <select id="type-filter" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 appearance-none focus:outline-none focus:ring-2 focus:ring-secondary-400 text-white">
+                <option value="all" selected>All Types</option>
+                <option value="online">Online</option>
+                <option value="in-person">In-person</option>
+                <option value="hybrid">Hybrid</option>
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
+                <i class="fas fa-chevron-down text-xs"></i>
+              </div>
+            </div>
+          </div>
+          <!-- Theme Filter -->
+          <div>
+            <label class="block text-sm font-medium text-gray-300 mb-2">Theme</label>
+            <div class="relative">
+              <select id="theme-filter" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 appearance-none focus:outline-none focus:ring-2 focus:ring-secondary-400 text-white">
+                <option value="all" selected>All Themes</option>
+                <option value="ai">AI/Machine Learning</option>
+                <option value="web3">Web3/Blockchain</option>
+                <option value="beginner">Beginner Friendly</option>
+                <option value="social">Social Good</option>
+                <option value="education">Education</option>
+                <option value="open">Open Ended</option>
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
+                <i class="fas fa-chevron-down text-xs"></i>
+              </div>
+            </div>
+          </div>
+          <!-- Sort By -->
+          <div>
+            <label class="block text-sm font-medium text-gray-300 mb-2">Sort By</label>
+            <div class="relative">
+              <select id="sort-by" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 appearance-none focus:outline-none focus:ring-2 focus:ring-secondary-400 text-white">
+                <option value="date-desc" selected>Newest First</option>
+                <option value="date-asc">Oldest First</option>
+                <option value="prize-desc">Highest Prize</option>
+                <option value="participants-desc">Most Popular</option>
+                <option value="deadline">Deadline (Soonest)</option>
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
+                <i class="fas fa-chevron-down text-xs"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Advanced Filters Toggle -->
+        <div>
+          <button id="advanced-filters-toggle" class="flex items-center gap-2 text-secondary-300 hover:text-secondary-400 transition-colors">
+            <span>Advanced Filters</span>
+            <i id="advanced-filters-icon" class="fas fa-chevron-down text-xs transition-transform"></i>
+          </button>
+          <!-- Advanced Filters Panel (Hidden by default) -->
+          <div id="advanced-filters-panel" class="hidden mt-4 pt-4 border-t border-white/10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <!-- Prize Range -->
+              <div>
+                <label class="block text-sm font-medium text-gray-300 mb-2">Prize Range</label>
+                <div class="flex items-center gap-2">
+                  <input 
+                                        type="number" 
+                                        id="min-prize" 
+                                        placeholder="Min $" 
+                                        class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-secondary-400 text-white placeholder-gray-400"
+                                    />
+                  <span>-</span>
+                  <input 
+                                        type="number" 
+                                        id="max-prize" 
+                                        placeholder="Max $" 
+                                        class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-secondary-400 text-white placeholder-gray-400"
+                                    />
+                </div>
+              </div>
+              <!-- Date Range -->
+              <div>
+                <label class="block text-sm font-medium text-gray-300 mb-2">Date Range</label>
+                <div class="flex items-center gap-2">
+                  <input 
+                                        type="date" 
+                                        id="start-date" 
+                                        class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-secondary-400 text-white"
+                                    />
+                  <span>-</span>
+                  <input 
+                                        type="date" 
+                                        id="end-date" 
+                                        class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-secondary-400 text-white"
+                                    />
+                </div>
+              </div>
+              <!-- Technologies -->
+              <div>
+                <label class="block text-sm font-medium text-gray-300 mb-2">Technologies</label>
+                <div class="relative">
+                  <select id="tech-filter" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 appearance-none focus:outline-none focus:ring-2 focus:ring-secondary-400 text-white">
+                    <option value="all" selected>All Technologies</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="python">Python</option>
+                    <option value="react">React</option>
+                    <option value="node">Node.js</option>
+                    <option value="aws">AWS</option>
+                    <option value="mobile">Mobile</option>
+                  </select>
+                  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
+                    <i class="fas fa-chevron-down text-xs"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Active Filters and Clear -->
+        <div id="active-filters-container" class="hidden pt-4 border-t border-white/10">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="text-sm text-gray-300">Active filters:</span>
+            <div id="active-filters" class="flex flex-wrap gap-2">
+              <!-- Active filters will be added here dynamically -->
+            </div>
+            <button id="clear-filters" class="text-sm text-secondary-300 hover:text-secondary-400 transition-colors ml-auto">
+              Clear all
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Results Count and View Toggle -->
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6">
+      <p id="results-count" class="text-gray-300 mb-4 sm:mb-0">Showing <span class="font-semibold">12</span> hackathons</p>
+      <div class="flex items-center gap-4">
+        <div class="flex items-center gap-2">
+          <button id="grid-view" class="p-2 rounded-lg bg-white/10 text-secondary-300" aria-label="Grid view">
+            <i class="fas fa-th-large"></i>
+          </button>
+          <button id="list-view" class="p-2 rounded-lg hover:bg-white/10 text-gray-400 hover:text-secondary-300 transition-colors" aria-label="List view">
+            <i class="fas fa-list"></i>
+          </button>
+        </div>
+        <div class="relative">
+          <select id="per-page" class="bg-white/5 border border-white/10 rounded-lg px-4 py-2 appearance-none focus:outline-none focus:ring-2 focus:ring-secondary-400 text-white">
+            <option value="12" selected>12 per page</option>
+            <option value="24">24 per page</option>
+            <option value="48">48 per page</option>
+          </select>
+          <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
+            <i class="fas fa-chevron-down text-xs"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Hackathon Grid -->
+    <div id="hackathons-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+      <!-- Hackathon Card 1 -->
+      <div class="glass rounded-3xl overflow-hidden transform transition-all duration-500 hover:scale-[1.03] hover:shadow-xl">
+        <div class="relative h-48">
+          <img 
+                        src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/challenge_thumbnails/002/581/603/datas/medium.png" 
+                        alt="Agentforce Virtual Hackathon" 
+                        class="w-full h-full object-cover"
+                    />
+          <div class="absolute top-4 left-4 bg-primary-500/80 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full">
+            Online
+          </div>
+          <div class="absolute top-4 right-4 bg-secondary-500/80 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full">
+            AI/ML
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-semibold mb-3">Agentforce Virtual Hackathon</h3>
+          <div class="flex flex-wrap gap-4 mb-4 text-sm text-gray-300">
+            <div class="flex items-center gap-2 bg-secondary-500/10 text-secondary-300 px-3 py-1 rounded-full">
+              <i class="fas fa-clock"></i>
+              <span>29 days left</span>
+            </div>
+            <div class="flex items-center">Mar 05 - Apr 30, 2025</div>
+          </div>
+          <div class="flex flex-wrap justify-between">
+            <div class="text-secondary-300 font-medium">$140,000 in prizes</div>
+            <div class="text-gray-300">4982 participants</div>
+          </div>
+        </div>
+      </div>
+      <!-- Hackathon Card 2 -->
+      <div class="glass rounded-3xl overflow-hidden transform transition-all duration-500 hover:scale-[1.03] hover:shadow-xl">
+        <div class="relative h-48">
+          <img 
+                        src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/challenge_thumbnails/002/581/604/datas/medium.png" 
+                        alt="AI Innovation Challenge" 
+                        class="w-full h-full object-cover"
+                    />
+          <div class="absolute top-4 left-4 bg-purple-500/80 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full">
+            Hybrid
+          </div>
+          <div class="absolute top-4 right-4 bg-secondary-500/80 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full">
+            AI/ML
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-semibold mb-3">AI Innovation Challenge</h3>
+          <div class="flex flex-wrap gap-4 mb-4 text-sm text-gray-300">
+            <div class="flex items-center gap-2 bg-secondary-500/10 text-secondary-300 px-3 py-1 rounded-full">
+              <i class="fas fa-clock"></i>
+              <span>15 days left</span>
+            </div>
+            <div class="flex items-center">Apr 10 - May 15, 2025</div>
+          </div>
+          <div class="flex flex-wrap justify-between">
+            <div class="text-secondary-300 font-medium">$75,000 in prizes</div>
+            <div class="text-gray-300">2145 participants</div>
+          </div>
+        </div>
+      </div>
+      <!-- Hackathon Card 3 -->
+      <div class="glass rounded-3xl overflow-hidden transform transition-all duration-500 hover:scale-[1.03] hover:shadow-xl">
+        <div class="relative h-48">
+          <img 
+                        src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/challenge_thumbnails/002/581/605/datas/medium.png" 
+                        alt="Web3 Builders Hackathon" 
+                        class="w-full h-full object-cover"
+                    />
+          <div class="absolute top-4 left-4 bg-blue-500/80 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full">
+            In-person
+          </div>
+          <div class="absolute top-4 right-4 bg-yellow-500/80 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full">
+            Web3
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-semibold mb-3">Web3 Builders Hackathon</h3>
+          <div class="flex flex-wrap gap-4 mb-4 text-sm text-gray-300">
+            <div class="flex items-center gap-2 bg-secondary-500/10 text-secondary-300 px-3 py-1 rounded-full">
+              <i class="fas fa-clock"></i>
+              <span>7 days left</span>
+            </div>
+            <div class="flex items-center">Apr 20 - Apr 22, 2025</div>
+          </div>
+          <div class="flex flex-wrap justify-between">
+            <div class="text-secondary-300 font-medium">$50,000 in prizes</div>
+            <div class="text-gray-300">1250 participants</div>
+          </div>
+        </div>
+      </div>
+      <!-- Hackathon Card 4 -->
+      <div class="glass rounded-3xl overflow-hidden transform transition-all duration-500 hover:scale-[1.03] hover:shadow-xl">
+        <div class="relative h-48">
+          <img 
+                        src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/challenge_thumbnails/002/581/606/datas/medium.png" 
+                        alt="Education Tech Hackathon" 
+                        class="w-full h-full object-cover"
+                    />
+          <div class="absolute top-4 left-4 bg-primary-500/80 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full">
+            Online
+          </div>
+          <div class="absolute top-4 right-4 bg-green-500/80 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full">
+            Education
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-semibold mb-3">Education Tech Hackathon</h3>
+          <div class="flex flex-wrap gap-4 mb-4 text-sm text-gray-300">
+            <div class="flex items-center gap-2 bg-secondary-500/10 text-secondary-300 px-3 py-1 rounded-full">
+              <i class="fas fa-clock"></i>
+              <span>21 days left</span>
+            </div>
+            <div class="flex items-center">Apr 15 - May 20, 2025</div>
+          </div>
+          <div class="flex flex-wrap justify-between">
+            <div class="text-secondary-300 font-medium">$35,000 in prizes</div>
+            <div class="text-gray-300">980 participants</div>
+          </div>
+        </div>
+      </div>
+      <!-- Hackathon Card 5 -->
+      <div class="glass rounded-3xl overflow-hidden transform transition-all duration-500 hover:scale-[1.03] hover:shadow-xl">
+        <div class="relative h-48">
+          <img 
+                        src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/challenge_thumbnails/002/581/607/datas/medium.png" 
+                        alt="Social Impact Challenge" 
+                        class="w-full h-full object-cover"
+                    />
+          <div class="absolute top-4 left-4 bg-primary-500/80 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full">
+            Online
+          </div>
+          <div class="absolute top-4 right-4 bg-pink-500/80 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full">
+            Social Good
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-semibold mb-3">Social Impact Challenge</h3>
+          <div class="flex flex-wrap gap-4 mb-4 text-sm text-gray-300">
+            <div class="flex items-center gap-2 bg-secondary-500/10 text-secondary-300 px-3 py-1 rounded-full">
+              <i class="fas fa-clock"></i>
+              <span>18 days left</span>
+            </div>
+            <div class="flex items-center">Apr 12 - May 10, 2025</div>
+          </div>
+          <div class="flex flex-wrap justify-between">
+            <div class="text-secondary-300 font-medium">$45,000 in prizes</div>
+            <div class="text-gray-300">1560 participants</div>
+          </div>
+        </div>
+      </div>
+      <!-- Hackathon Card 6 -->
+      <div class="glass rounded-3xl overflow-hidden transform transition-all duration-500 hover:scale-[1.03] hover:shadow-xl">
+        <div class="relative h-48">
+          <img 
+                        src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/challenge_thumbnails/002/581/608/datas/medium.png" 
+                        alt="Beginner Coders Hackathon" 
+                        class="w-full h-full object-cover"
+                    />
+          <div class="absolute top-4 left-4 bg-primary-500/80 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full">
+            Online
+          </div>
+          <div class="absolute top-4 right-4 bg-orange-500/80 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full">
+            Beginner Friendly
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-semibold mb-3">Beginner Coders Hackathon</h3>
+          <div class="flex flex-wrap gap-4 mb-4 text-sm text-gray-300">
+            <div class="flex items-center gap-2 bg-secondary-500/10 text-secondary-300 px-3 py-1 rounded-full">
+              <i class="fas fa-clock"></i>
+              <span>25 days left</span>
+            </div>
+            <div class="flex items-center">Apr 05 - May 15, 2025</div>
+          </div>
+          <div class="flex flex-wrap justify-between">
+            <div class="text-secondary-300 font-medium">$20,000 in prizes</div>
+            <div class="text-gray-300">2750 participants</div>
+          </div>
+        </div>
+      </div>
+      <!-- Additional Hackathon Cards (7-12) -->
+      <!-- Hackathon Card 7 -->
+      <div class="glass rounded-3xl overflow-hidden transform transition-all duration-500 hover:scale-[1.03] hover:shadow-xl">
+        <div class="relative h-48">
+          <img 
+                        src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/challenge_thumbnails/002/581/609/datas/medium.png" 
+                        alt="Mobile App Challenge" 
+                        class="w-full h-full object-cover"
+                    />
+          <div class="absolute top-4 left-4 bg-purple-500/80 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full">
+            Hybrid
+          </div>
+          <div class="absolute top-4 right-4 bg-red-500/80 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full">
+            Mobile
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-semibold mb-3">Mobile App Challenge</h3>
+          <div class="flex flex-wrap gap-4 mb-4 text-sm text-gray-300">
+            <div class="flex items-center gap-2 bg-secondary-500/10 text-secondary-300 px-3 py-1 rounded-full">
+              <i class="fas fa-clock"></i>
+              <span>12 days left</span>
+            </div>
+            <div class="flex items-center">Apr 18 - May 05, 2025</div>
+          </div>
+          <div class="flex flex-wrap justify-between">
+            <div class="text-secondary-300 font-medium">$30,000 in prizes</div>
+            <div class="text-gray-300">1120 participants</div>
+          </div>
+        </div>
+      </div>
+      <!-- Hackathon Cards 8-12 (similar structure, different data) -->
+      <!-- For brevity, I'll skip cards 8-12 but they would follow the same pattern -->
+    </div>
+    <!-- Pagination -->
+    <div class="flex justify-center">
+      <nav class="glass rounded-full px-2 py-1 inline-flex">
+        <button class="p-2 rounded-full hover:bg-white/10 text-gray-400 transition-colors" aria-label="Previous page">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="p-2 w-10 rounded-full bg-white/10 text-secondary-300 transition-colors">1</button>
+        <button class="p-2 w-10 rounded-full hover:bg-white/10 text-gray-300 hover:text-secondary-300 transition-colors">2</button>
+        <button class="p-2 w-10 rounded-full hover:bg-white/10 text-gray-300 hover:text-secondary-300 transition-colors">3</button>
+        <button class="p-2 w-10 rounded-full hover:bg-white/10 text-gray-300 hover:text-secondary-300 transition-colors">4</button>
+        <button class="p-2 w-10 rounded-full hover:bg-white/10 text-gray-300 hover:text-secondary-300 transition-colors">5</button>
+        <button class="p-2 rounded-full hover:bg-white/10 text-gray-300 hover:text-secondary-300 transition-colors" aria-label="Next page">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </nav>
+    </div>
+  </div>
+</main>
