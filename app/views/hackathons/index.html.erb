@@ -1,436 +1,543 @@
 <% content_for :title, "Hackathons" %>
 <%= turbo_stream_from "hackathons" %>
 <%= turbo_refreshes_with method: :morph, scroll: :preserve %>
-<main class="py-8">
-  <div class="container mx-auto px-4">
-    <!-- Page Header -->
-    <div class="mb-8">
-      <h1 class="text-3xl md:text-4xl font-bold mb-2 text-gradient">Browse Hackathons</h1>
-      <p class="text-gray-300">Find your next coding challenge and build something amazing</p>
+
+
+<!-- Hero Section -->
+  <div class="relative py-16 md:py-24 mb-6">
+    <div class="container px-4 mx-auto">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-4xl font-extrabold text-gray-900 sm:text-5xl mb-4">
+          Find your next <span class="text-teal-600">hackathon</span>
+        </h1>
+        <p class="text-lg text-gray-600 mb-8">
+          Browse through hundreds of hackathons happening around the world
+        </p>
+        
+        <div class="glass-card p-1 rounded-full">
+          <div class="relative bg-white/70 backdrop-blur-md rounded-full">
+            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
+            <input
+              type="text"
+              class="w-full pl-12 pr-32 py-6 bg-transparent border-none focus:ring-2 focus:ring-teal-500 focus:ring-opacity-50 rounded-full"
+              placeholder="Search hackathons by name, theme, or technology"
+            />
+            <div class="absolute inset-y-0 right-2 flex items-center">
+              <button class="px-4 py-2 rounded-full text-white bg-teal-600 hover:bg-teal-700 transition-colors">
+                Search
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <!-- Search and Filter Section -->
-    <div class="glass rounded-3xl p-6 mb-8">
-      <div class="flex flex-col space-y-6">
-        <!-- Search Bar -->
-        <div class="flex flex-col sm:flex-row gap-4">
-          <div class="relative flex-grow">
-            <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-            <input 
-                            type="text" 
-                            id="search-input"
-                            placeholder="Search hackathons by name, technology, or theme" 
-                            class="w-full bg-white/5 border border-white/10 rounded-full pl-10 pr-4 py-3 focus:outline-none focus:ring-2 focus:ring-secondary-400 text-white placeholder-gray-400"
-                        />
-          </div>
-          <button 
-                        id="search-button"
-                        class="px-6 py-3 rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 transition-colors font-medium whitespace-nowrap"
-                    >
-            Search
-          </button>
-        </div>
-        <!-- Filter Options -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          <!-- Status Filter -->
-          <div>
-            <label class="block text-sm font-medium text-gray-300 mb-2">Status</label>
-            <div class="relative">
-              <select id="status-filter" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 appearance-none focus:outline-none focus:ring-2 focus:ring-secondary-400 text-white">
-                <option value="all" selected>All Statuses</option>
-                <option value="upcoming">Upcoming</option>
-                <option value="ongoing">Ongoing</option>
-                <option value="past">Past</option>
-              </select>
-              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
-                <i class="fas fa-chevron-down text-xs"></i>
-              </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="container px-4 mx-auto pb-16">
+    <div class="flex flex-col md:flex-row gap-8">
+      <!-- Filters Sidebar -->
+      <div class="md:w-1/4">
+        <div class="glass-card p-0.5 rounded-xl sticky top-24">
+          <div class="bg-white/80 backdrop-blur-lg rounded-xl p-6">
+            <div class="flex items-center justify-between mb-6">
+              <h2 class="text-lg font-semibold text-gray-900">Filters</h2>
+              <button class="text-xs text-teal-600 hover:text-teal-700">
+                Reset All
+              </button>
             </div>
-          </div>
-          <!-- Type Filter -->
-          <div>
-            <label class="block text-sm font-medium text-gray-300 mb-2">Type</label>
-            <div class="relative">
-              <select id="type-filter" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 appearance-none focus:outline-none focus:ring-2 focus:ring-secondary-400 text-white">
-                <option value="all" selected>All Types</option>
-                <option value="online">Online</option>
-                <option value="in-person">In-person</option>
-                <option value="hybrid">Hybrid</option>
-              </select>
-              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
-                <i class="fas fa-chevron-down text-xs"></i>
-              </div>
-            </div>
-          </div>
-          <!-- Theme Filter -->
-          <div>
-            <label class="block text-sm font-medium text-gray-300 mb-2">Theme</label>
-            <div class="relative">
-              <select id="theme-filter" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 appearance-none focus:outline-none focus:ring-2 focus:ring-secondary-400 text-white">
-                <option value="all" selected>All Themes</option>
-                <option value="ai">AI/Machine Learning</option>
-                <option value="web3">Web3/Blockchain</option>
-                <option value="beginner">Beginner Friendly</option>
-                <option value="social">Social Good</option>
-                <option value="education">Education</option>
-                <option value="open">Open Ended</option>
-              </select>
-              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
-                <i class="fas fa-chevron-down text-xs"></i>
-              </div>
-            </div>
-          </div>
-          <!-- Sort By -->
-          <div>
-            <label class="block text-sm font-medium text-gray-300 mb-2">Sort By</label>
-            <div class="relative">
-              <select id="sort-by" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 appearance-none focus:outline-none focus:ring-2 focus:ring-secondary-400 text-white">
-                <option value="date-desc" selected>Newest First</option>
-                <option value="date-asc">Oldest First</option>
-                <option value="prize-desc">Highest Prize</option>
-                <option value="participants-desc">Most Popular</option>
-                <option value="deadline">Deadline (Soonest)</option>
-              </select>
-              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
-                <i class="fas fa-chevron-down text-xs"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Advanced Filters Toggle -->
-        <div>
-          <button id="advanced-filters-toggle" class="flex items-center gap-2 text-secondary-300 hover:text-secondary-400 transition-colors">
-            <span>Advanced Filters</span>
-            <i id="advanced-filters-icon" class="fas fa-chevron-down text-xs transition-transform"></i>
-          </button>
-          <!-- Advanced Filters Panel (Hidden by default) -->
-          <div id="advanced-filters-panel" class="hidden mt-4 pt-4 border-t border-white/10">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <!-- Prize Range -->
-              <div>
-                <label class="block text-sm font-medium text-gray-300 mb-2">Prize Range</label>
-                <div class="flex items-center gap-2">
-                  <input 
-                                        type="number" 
-                                        id="min-prize" 
-                                        placeholder="Min $" 
-                                        class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-secondary-400 text-white placeholder-gray-400"
-                                    />
-                  <span>-</span>
-                  <input 
-                                        type="number" 
-                                        id="max-prize" 
-                                        placeholder="Max $" 
-                                        class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-secondary-400 text-white placeholder-gray-400"
-                                    />
+            
+            <!-- Format Filter -->
+            <div class="mb-6">
+              <h3 class="text-sm font-medium text-gray-700 mb-3">Format</h3>
+              <div class="space-y-2">
+                <div class="flex items-center">
+                  <input type="checkbox" id="format-in-person" class="h-4 w-4 text-teal-600 focus:ring-teal-500 border-gray-300 rounded">
+                  <label for="format-in-person" class="ml-2 text-sm text-gray-600">
+                    In-person
+                  </label>
                 </div>
-              </div>
-              <!-- Date Range -->
-              <div>
-                <label class="block text-sm font-medium text-gray-300 mb-2">Date Range</label>
-                <div class="flex items-center gap-2">
-                  <input 
-                                        type="date" 
-                                        id="start-date" 
-                                        class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-secondary-400 text-white"
-                                    />
-                  <span>-</span>
-                  <input 
-                                        type="date" 
-                                        id="end-date" 
-                                        class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-secondary-400 text-white"
-                                    />
+                <div class="flex items-center">
+                  <input type="checkbox" id="format-online" class="h-4 w-4 text-teal-600 focus:ring-teal-500 border-gray-300 rounded">
+                  <label for="format-online" class="ml-2 text-sm text-gray-600">
+                    Online
+                  </label>
                 </div>
-              </div>
-              <!-- Technologies -->
-              <div>
-                <label class="block text-sm font-medium text-gray-300 mb-2">Technologies</label>
-                <div class="relative">
-                  <select id="tech-filter" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 appearance-none focus:outline-none focus:ring-2 focus:ring-secondary-400 text-white">
-                    <option value="all" selected>All Technologies</option>
-                    <option value="javascript">JavaScript</option>
-                    <option value="python">Python</option>
-                    <option value="react">React</option>
-                    <option value="node">Node.js</option>
-                    <option value="aws">AWS</option>
-                    <option value="mobile">Mobile</option>
-                  </select>
-                  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
-                    <i class="fas fa-chevron-down text-xs"></i>
-                  </div>
+                <div class="flex items-center">
+                  <input type="checkbox" id="format-hybrid" class="h-4 w-4 text-teal-600 focus:ring-teal-500 border-gray-300 rounded">
+                  <label for="format-hybrid" class="ml-2 text-sm text-gray-600">
+                    Hybrid
+                  </label>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <!-- Active Filters and Clear -->
-        <div id="active-filters-container" class="hidden pt-4 border-t border-white/10">
-          <div class="flex flex-wrap items-center gap-2">
-            <span class="text-sm text-gray-300">Active filters:</span>
-            <div id="active-filters" class="flex flex-wrap gap-2">
-              <!-- Active filters will be added here dynamically -->
+            
+            <hr class="my-4 border-gray-200/60">
+            
+            <!-- Prize Filter -->
+            <div class="mb-6">
+              <h3 class="text-sm font-medium text-gray-700 mb-3">Prize Pool</h3>
+              <input type="range" min="0" max="100000" value="50000" step="5000" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+              <div class="flex items-center justify-between mt-2">
+                <span class="text-xs text-gray-500">$0</span>
+                <span class="text-xs text-gray-500">$100,000+</span>
+              </div>
             </div>
-            <button id="clear-filters" class="text-sm text-secondary-300 hover:text-secondary-400 transition-colors ml-auto">
-              Clear all
+            
+            <hr class="my-4 border-gray-200/60">
+            
+            <!-- Theme Filter -->
+            <div class="mb-6">
+              <h3 class="text-sm font-medium text-gray-700 mb-3">Themes</h3>
+              <div class="space-y-2">
+                <div class="flex items-center">
+                  <input type="checkbox" id="theme-ai-ml" class="h-4 w-4 text-teal-600 focus:ring-teal-500 border-gray-300 rounded">
+                  <label for="theme-ai-ml" class="ml-2 text-sm text-gray-600">
+                    AI/ML
+                  </label>
+                </div>
+                <div class="flex items-center">
+                  <input type="checkbox" id="theme-blockchain" class="h-4 w-4 text-teal-600 focus:ring-teal-500 border-gray-300 rounded">
+                  <label for="theme-blockchain" class="ml-2 text-sm text-gray-600">
+                    Blockchain
+                  </label>
+                </div>
+                <div class="flex items-center">
+                  <input type="checkbox" id="theme-climate-tech" class="h-4 w-4 text-teal-600 focus:ring-teal-500 border-gray-300 rounded">
+                  <label for="theme-climate-tech" class="ml-2 text-sm text-gray-600">
+                    Climate Tech
+                  </label>
+                </div>
+                <div class="flex items-center">
+                  <input type="checkbox" id="theme-web3" class="h-4 w-4 text-teal-600 focus:ring-teal-500 border-gray-300 rounded">
+                  <label for="theme-web3" class="ml-2 text-sm text-gray-600">
+                    Web3
+                  </label>
+                </div>
+                <div class="flex items-center">
+                  <input type="checkbox" id="theme-open-ended" class="h-4 w-4 text-teal-600 focus:ring-teal-500 border-gray-300 rounded">
+                  <label for="theme-open-ended" class="ml-2 text-sm text-gray-600">
+                    Open Ended
+                  </label>
+                </div>
+                <div class="flex items-center">
+                  <input type="checkbox" id="theme-social-good" class="h-4 w-4 text-teal-600 focus:ring-teal-500 border-gray-300 rounded">
+                  <label for="theme-social-good" class="ml-2 text-sm text-gray-600">
+                    Social Good
+                  </label>
+                </div>
+              </div>
+            </div>
+            
+            <hr class="my-4 border-gray-200/60">
+            
+            <!-- Date Filter -->
+            <div class="mb-6">
+              <h3 class="text-sm font-medium text-gray-700 mb-3">Date</h3>
+              <div class="space-y-2">
+                <div class="flex items-center">
+                  <input type="checkbox" id="date-now" class="h-4 w-4 text-teal-600 focus:ring-teal-500 border-gray-300 rounded">
+                  <label for="date-now" class="ml-2 text-sm text-gray-600">
+                    Happening now
+                  </label>
+                </div>
+                <div class="flex items-center">
+                  <input type="checkbox" id="date-week" class="h-4 w-4 text-teal-600 focus:ring-teal-500 border-gray-300 rounded">
+                  <label for="date-week" class="ml-2 text-sm text-gray-600">
+                    This week
+                  </label>
+                </div>
+                <div class="flex items-center">
+                  <input type="checkbox" id="date-month" class="h-4 w-4 text-teal-600 focus:ring-teal-500 border-gray-300 rounded">
+                  <label for="date-month" class="ml-2 text-sm text-gray-600">
+                    This month
+                  </label>
+                </div>
+                <div class="flex items-center">
+                  <input type="checkbox" id="date-next-month" class="h-4 w-4 text-teal-600 focus:ring-teal-500 border-gray-300 rounded">
+                  <label for="date-next-month" class="ml-2 text-sm text-gray-600">
+                    Next month
+                  </label>
+                </div>
+                <div class="flex items-center">
+                  <input type="checkbox" id="date-custom" class="h-4 w-4 text-teal-600 focus:ring-teal-500 border-gray-300 rounded">
+                  <label for="date-custom" class="ml-2 text-sm text-gray-600">
+                    Custom
+                  </label>
+                </div>
+              </div>
+            </div>
+            
+            <button class="w-full px-4 py-2 rounded-md text-white bg-teal-600 hover:bg-teal-700 transition-colors flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+              </svg>
+              Apply Filters
             </button>
           </div>
         </div>
       </div>
-    </div>
-    <!-- Results Count and View Toggle -->
-    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6">
-      <p id="results-count" class="text-gray-300 mb-4 sm:mb-0">Showing <span class="font-semibold">12</span> hackathons</p>
-      <div class="flex items-center gap-4">
-        <div class="flex items-center gap-2">
-          <button id="grid-view" class="p-2 rounded-lg bg-white/10 text-secondary-300" aria-label="Grid view">
-            <i class="fas fa-th-large"></i>
-          </button>
-          <button id="list-view" class="p-2 rounded-lg hover:bg-white/10 text-gray-400 hover:text-secondary-300 transition-colors" aria-label="List view">
-            <i class="fas fa-list"></i>
-          </button>
-        </div>
-        <div class="relative">
-          <select id="per-page" class="bg-white/5 border border-white/10 rounded-lg px-4 py-2 appearance-none focus:outline-none focus:ring-2 focus:ring-secondary-400 text-white">
-            <option value="12" selected>12 per page</option>
-            <option value="24">24 per page</option>
-            <option value="48">48 per page</option>
-          </select>
-          <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
-            <i class="fas fa-chevron-down text-xs"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Hackathon Grid -->
-    <div id="hackathons-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-      <!-- Hackathon Card 1 -->
-      <% @hackathons.each do |hackathon|  %>
-        <%= link_to hackathon do %>
-          <div class="glass rounded-3xl overflow-hidden transform transition-all duration-500 hover:scale-[1.03] hover:shadow-xl">
-            <div class="relative h-48">
-              <%= image_tag(hackathon.image.url, class: "w-full h-full object-cover") %>
-              <div class="absolute top-4 left-4 bg-primary-500/80 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full">
-                Online
-              </div>
-              <div class="absolute top-4 right-4 bg-secondary-500/80 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full">
-                AI/ML
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-semibold mb-3"><%= hackathon.title %></h3>
-              <div class="flex flex-wrap gap-4 mb-4 text-sm text-gray-300">
-                <div class="flex items-center gap-2 bg-secondary-500/10 text-secondary-300 px-3 py-1 rounded-full">
-                  <i class="fas fa-clock"></i>
-                  <span>29 days left</span>
-                </div>
-                <div class="flex items-center">Mar 05 - Apr 30, 2025</div>
-              </div>
-              <div class="flex flex-wrap justify-between">
-                <div class="text-secondary-300 font-medium">$140,000 in prizes</div>
-                <div class="text-gray-300">4982 participants</div>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
-      <!-- Hackathon Card 2 -->
-      <div class="glass rounded-3xl overflow-hidden transform transition-all duration-500 hover:scale-[1.03] hover:shadow-xl">
-        <div class="relative h-48">
-          <img 
-                        src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/challenge_thumbnails/002/581/604/datas/medium.png" 
-                        alt="AI Innovation Challenge" 
-                        class="w-full h-full object-cover"
-                    />
-          <div class="absolute top-4 left-4 bg-purple-500/80 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full">
-            Hybrid
-          </div>
-          <div class="absolute top-4 right-4 bg-secondary-500/80 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full">
+      
+      <!-- Hackathon Listings -->
+      <div class="md:w-3/4">
+        <!-- Active Filters -->
+        <div class="flex flex-wrap gap-2 mb-6">
+          <span class="bg-white/50 backdrop-blur-sm px-3 py-1 rounded-full text-sm border border-gray-200 flex items-center">
+            Online
+            <button class="ml-2 text-gray-500 hover:text-red-500">×</button>
+          </span>
+          <span class="bg-white/50 backdrop-blur-sm px-3 py-1 rounded-full text-sm border border-gray-200 flex items-center">
+            Prize: &gt;$10,000
+            <button class="ml-2 text-gray-500 hover:text-red-500">×</button>
+          </span>
+          <span class="bg-white/50 backdrop-blur-sm px-3 py-1 rounded-full text-sm border border-gray-200 flex items-center">
             AI/ML
+            <button class="ml-2 text-gray-500 hover:text-red-500">×</button>
+          </span>
+        </div>
+        
+        <!-- Sorting Controls -->
+        <div class="glass-card p-0.5 rounded-xl mb-6">
+          <div class="bg-white/80 backdrop-blur-lg rounded-xl p-4 flex justify-between items-center">
+            <div class="text-sm text-gray-500">Showing <span class="font-medium text-gray-900">24</span> results</div>
+            <div class="flex items-center space-x-2">
+              <span class="text-sm text-gray-500">Sort by:</span>
+              <select class="text-sm bg-transparent border-0 text-gray-900 font-medium focus:ring-0">
+                <option>Featured</option>
+                <option>Newest</option>
+                <option>Prize (High to Low)</option>
+                <option>Prize (Low to High)</option>
+                <option>Deadline (Soonest)</option>
+              </select>
+            </div>
           </div>
         </div>
-        <div class="p-6">
-          <h3 class="text-xl font-semibold mb-3">AI Innovation Challenge</h3>
-          <div class="flex flex-wrap gap-4 mb-4 text-sm text-gray-300">
-            <div class="flex items-center gap-2 bg-secondary-500/10 text-secondary-300 px-3 py-1 rounded-full">
-              <i class="fas fa-clock"></i>
-              <span>15 days left</span>
+        
+        <!-- Hackathon Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <% @hackathons.each do |hackathon|  %>
+            <%= link_to hackathon do %>
+              <div class="glass-card p-0.5 rounded-xl">
+                <div class="bg-white/70 backdrop-blur-md rounded-xl p-6 h-full flex flex-col transition-all duration-300 hover:transform hover:scale-105 hover:bg-white/90">
+                  <div class="flex items-center mb-4">
+                    <div class="flex-shrink-0">
+                      <div class="relative">
+                        <div class="absolute -inset-0.5 bg-gradient-to-r from-teal-500 to-blue-500 rounded-md blur-sm opacity-70"></div>
+                        <%= image_tag(hackathon.image.url, class: "relative h-12 w-12 rounded-md") %>
+                      </div>
+                    </div>
+                    <div class="ml-4">
+                      <h3 class="text-lg leading-6 font-medium text-gray-900"><%= hackathon.title %></h3>
+                      <p class="text-sm text-gray-500">Online • Mar 15 - Apr 15, 2025</p>
+                    </div>
+                  </div>
+                  <div class="mt-2 flex-grow">
+                    <p class="text-base text-gray-600">Build the next generation of AI-powered applications and compete for amazing prizes.</p>
+                  </div>
+                  <div class="mt-6 flex items-center">
+                    <div class="text-sm text-gray-500">
+                      <span class="font-medium text-teal-600">$50,000</span> in prizes
+                    </div>
+                    <span class="mx-2 text-gray-300">•</span>
+                    <div class="text-sm text-gray-500">
+                      <span class="font-medium text-gray-900">2,500+</span> participants
+                    </div>
+                  </div>
+                  <div class="mt-5">
+                    <a 
+                      href="hackathon-details.html" 
+                      class="inline-flex items-center text-teal-600 hover:text-teal-700 font-medium"
+                    >
+                      View details
+                      <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+
+          <!-- Hackathon Card 1 -->
+          <div class="glass-card p-0.5 rounded-xl">
+            <div class="bg-white/70 backdrop-blur-md rounded-xl p-6 h-full flex flex-col transition-all duration-300 hover:transform hover:scale-105 hover:bg-white/90">
+              <div class="flex items-center mb-4">
+                <div class="flex-shrink-0">
+                  <div class="relative">
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-teal-500 to-blue-500 rounded-md blur-sm opacity-70"></div>
+                    <img class="relative h-12 w-12 rounded-md" src="https://placehold.co/48x48/0d9488/ffffff?text=AI" alt="AI Innovation Hackathon logo" />
+                  </div>
+                </div>
+                <div class="ml-4">
+                  <h3 class="text-lg leading-6 font-medium text-gray-900">AI Innovation Hackathon</h3>
+                  <p class="text-sm text-gray-500">Online • Mar 15 - Apr 15, 2025</p>
+                </div>
+              </div>
+              <div class="mt-2 flex-grow">
+                <p class="text-base text-gray-600">Build the next generation of AI-powered applications and compete for amazing prizes.</p>
+              </div>
+              <div class="mt-6 flex items-center">
+                <div class="text-sm text-gray-500">
+                  <span class="font-medium text-teal-600">$50,000</span> in prizes
+                </div>
+                <span class="mx-2 text-gray-300">•</span>
+                <div class="text-sm text-gray-500">
+                  <span class="font-medium text-gray-900">2,500+</span> participants
+                </div>
+              </div>
+              <div class="mt-5">
+                <a 
+                  href="hackathon-details.html" 
+                  class="inline-flex items-center text-teal-600 hover:text-teal-700 font-medium"
+                >
+                  View details
+                  <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
             </div>
-            <div class="flex items-center">Apr 10 - May 15, 2025</div>
           </div>
-          <div class="flex flex-wrap justify-between">
-            <div class="text-secondary-300 font-medium">$75,000 in prizes</div>
-            <div class="text-gray-300">2145 participants</div>
+          
+          <!-- Hackathon Card 2 -->
+          <div class="glass-card p-0.5 rounded-xl">
+            <div class="bg-white/70 backdrop-blur-md rounded-xl p-6 h-full flex flex-col transition-all duration-300 hover:transform hover:scale-105 hover:bg-white/90">
+              <div class="flex items-center mb-4">
+                <div class="flex-shrink-0">
+                  <div class="relative">
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-teal-500 to-blue-500 rounded-md blur-sm opacity-70"></div>
+                    <img class="relative h-12 w-12 rounded-md" src="https://placehold.co/48x48/0d9488/ffffff?text=BC" alt="Blockchain Revolution logo" />
+                  </div>
+                </div>
+                <div class="ml-4">
+                  <h3 class="text-lg leading-6 font-medium text-gray-900">Blockchain Revolution</h3>
+                  <p class="text-sm text-gray-500">Online • Apr 1 - Apr 30, 2025</p>
+                </div>
+              </div>
+              <div class="mt-2 flex-grow">
+                <p class="text-base text-gray-600">Revolutionize finance, supply chains, and more with blockchain technology.</p>
+              </div>
+              <div class="mt-6 flex items-center">
+                <div class="text-sm text-gray-500">
+                  <span class="font-medium text-teal-600">$75,000</span> in prizes
+                </div>
+                <span class="mx-2 text-gray-300">•</span>
+                <div class="text-sm text-gray-500">
+                  <span class="font-medium text-gray-900">1,800+</span> participants
+                </div>
+              </div>
+              <div class="mt-5">
+                <a 
+                  href="hackathon-details.html" 
+                  class="inline-flex items-center text-teal-600 hover:text-teal-700 font-medium"
+                >
+                  View details
+                  <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+            </div>
           </div>
+          
+          <!-- Hackathon Card 3 -->
+          <div class="glass-card p-0.5 rounded-xl">
+            <div class="bg-white/70 backdrop-blur-md rounded-xl p-6 h-full flex flex-col transition-all duration-300 hover:transform hover:scale-105 hover:bg-white/90">
+              <div class="flex items-center mb-4">
+                <div class="flex-shrink-0">
+                  <div class="relative">
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-teal-500 to-blue-500 rounded-md blur-sm opacity-70"></div>
+                    <img class="relative h-12 w-12 rounded-md" src="https://placehold.co/48x48/0d9488/ffffff?text=CT" alt="Climate Tech Summit logo" />
+                  </div>
+                </div>
+                <div class="ml-4">
+                  <h3 class="text-lg leading-6 font-medium text-gray-900">Climate Tech Summit</h3>
+                  <p class="text-sm text-gray-500">Hybrid • May 10 - May 25, 2025</p>
+                </div>
+              </div>
+              <div class="mt-2 flex-grow">
+                <p class="text-base text-gray-600">Develop innovative solutions to combat climate change and promote sustainability.</p>
+              </div>
+              <div class="mt-6 flex items-center">
+                <div class="text-sm text-gray-500">
+                  <span class="font-medium text-teal-600">$100,000</span> in prizes
+                </div>
+                <span class="mx-2 text-gray-300">•</span>
+                <div class="text-sm text-gray-500">
+                  <span class="font-medium text-gray-900">3,200+</span> participants
+                </div>
+              </div>
+              <div class="mt-5">
+                <a 
+                  href="hackathon-details.html" 
+                  class="inline-flex items-center text-teal-600 hover:text-teal-700 font-medium"
+                >
+                  View details
+                  <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Hackathon Card 4 -->
+          <div class="glass-card p-0.5 rounded-xl">
+            <div class="bg-white/70 backdrop-blur-md rounded-xl p-6 h-full flex flex-col transition-all duration-300 hover:transform hover:scale-105 hover:bg-white/90">
+              <div class="flex items-center mb-4">
+                <div class="flex-shrink-0">
+                  <div class="relative">
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-teal-500 to-blue-500 rounded-md blur-sm opacity-70"></div>
+                    <img class="relative h-12 w-12 rounded-md" src="https://placehold.co/48x48/0d9488/ffffff?text=W3" alt="Web3 Builders Hack logo" />
+                  </div>
+                </div>
+                <div class="ml-4">
+                  <h3 class="text-lg leading-6 font-medium text-gray-900">Web3 Builders Hack</h3>
+                  <p class="text-sm text-gray-500">Online • Mar 15 - Apr 15, 2025</p>
+                </div>
+              </div>
+              <div class="mt-2 flex-grow">
+                <p class="text-base text-gray-600">Create the future of the decentralized web with cutting-edge Web3 technologies.</p>
+              </div>
+              <div class="mt-6 flex items-center">
+                <div class="text-sm text-gray-500">
+                  <span class="font-medium text-teal-600">$60,000</span> in prizes
+                </div>
+                <span class="mx-2 text-gray-300">•</span>
+                <div class="text-sm text-gray-500">
+                  <span class="font-medium text-gray-900">1,500+</span> participants
+                </div>
+              </div>
+              <div class="mt-5">
+                <a 
+                  href="hackathon-details.html" 
+                  class="inline-flex items-center text-teal-600 hover:text-teal-700 font-medium"
+                >
+                  View details
+                  <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Hackathon Card 5 -->
+          <div class="glass-card p-0.5 rounded-xl">
+            <div class="bg-white/70 backdrop-blur-md rounded-xl p-6 h-full flex flex-col transition-all duration-300 hover:transform hover:scale-105 hover:bg-white/90">
+              <div class="flex items-center mb-4">
+                <div class="flex-shrink-0">
+                  <div class="relative">
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-teal-500 to-blue-500 rounded-md blur-sm opacity-70"></div>
+                    <img class="relative h-12 w-12 rounded-md" src="https://placehold.co/48x48/0d9488/ffffff?text=HT" alt="Health Tech Challenge logo" />
+                  </div>
+                </div>
+                <div class="ml-4">
+                  <h3 class="text-lg leading-6 font-medium text-gray-900">Health Tech Challenge</h3>
+                  <p class="text-sm text-gray-500">Online • Apr 1 - Apr 30, 2025</p>
+                </div>
+              </div>
+              <div class="mt-2 flex-grow">
+                <p class="text-base text-gray-600">Innovate in healthcare with technology solutions that improve patient outcomes.</p>
+              </div>
+              <div class="mt-6 flex items-center">
+                <div class="text-sm text-gray-500">
+                  <span class="font-medium text-teal-600">$80,000</span> in prizes
+                </div>
+                <span class="mx-2 text-gray-300">•</span>
+                <div class="text-sm text-gray-500">
+                  <span class="font-medium text-gray-900">2,100+</span> participants
+                </div>
+              </div>
+              <div class="mt-5">
+                <a 
+                  href="hackathon-details.html" 
+                  class="inline-flex items-center text-teal-600 hover:text-teal-700 font-medium"
+                >
+                  View details
+                  <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Hackathon Card 6 -->
+          <div class="glass-card p-0.5 rounded-xl">
+            <div class="bg-white/70 backdrop-blur-md rounded-xl p-6 h-full flex flex-col transition-all duration-300 hover:transform hover:scale-105 hover:bg-white/90">
+              <div class="flex items-center mb-4">
+                <div class="flex-shrink-0">
+                  <div class="relative">
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-teal-500 to-blue-500 rounded-md blur-sm opacity-70"></div>
+                    <img class="relative h-12 w-12 rounded-md" src="https://placehold.co/48x48/0d9488/ffffff?text=GD" alt="Game Dev Jam logo" />
+                  </div>
+                </div>
+                <div class="ml-4">
+                  <h3 class="text-lg leading-6 font-medium text-gray-900">Game Dev Jam</h3>
+                  <p class="text-sm text-gray-500">Hybrid • May 10 - May 25, 2025</p>
+                </div>
+              </div>
+              <div class="mt-2 flex-grow">
+                <p class="text-base text-gray-600">Design and develop game-changing interactive experiences in just 48 hours.</p>
+              </div>
+              <div class="mt-6 flex items-center">
+                <div class="text-sm text-gray-500">
+                  <span class="font-medium text-teal-600">$40,000</span> in prizes
+                </div>
+                <span class="mx-2 text-gray-300">•</span>
+                <div class="text-sm text-gray-500">
+                  <span class="font-medium text-gray-900">1,200+</span> participants
+                </div>
+              </div>
+              <div class="mt-5">
+                <a 
+                  href="hackathon-details.html" 
+                  class="inline-flex items-center text-teal-600 hover:text-teal-700 font-medium"
+                >
+                  View details
+                  <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Pagination -->
+        <div class="mt-10 flex justify-center">
+          <nav class="glass-card p-0.5 rounded-lg inline-flex">
+            <div class="bg-white/80 backdrop-blur-lg rounded-lg inline-flex divide-x divide-gray-200/60">
+              <button class="px-4 py-2 text-sm font-medium text-gray-400 rounded-l-md" disabled>
+                &laquo; Previous
+              </button>
+              <button class="px-4 py-2 text-sm font-medium text-white bg-teal-600">
+                1
+              </button>
+              <button class="px-4 py-2 text-sm font-medium text-gray-700 hover:bg-teal-50">
+                2
+              </button>
+              <button class="px-4 py-2 text-sm font-medium text-gray-700 hover:bg-teal-50">
+                3
+              </button>
+              <button class="px-4 py-2 text-sm font-medium text-gray-700 hover:bg-teal-50">
+                4
+              </button>
+              <button class="px-4 py-2 text-sm font-medium text-gray-700 hover:bg-teal-50">
+                5
+              </button>
+              <button class="px-4 py-2 text-sm font-medium text-gray-700 hover:bg-teal-50 rounded-r-md">
+                Next &raquo;
+              </button>
+            </div>
+          </nav>
         </div>
       </div>
-      <!-- Hackathon Card 3 -->
-      <div class="glass rounded-3xl overflow-hidden transform transition-all duration-500 hover:scale-[1.03] hover:shadow-xl">
-        <div class="relative h-48">
-          <img 
-                        src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/challenge_thumbnails/002/581/605/datas/medium.png" 
-                        alt="Web3 Builders Hackathon" 
-                        class="w-full h-full object-cover"
-                    />
-          <div class="absolute top-4 left-4 bg-blue-500/80 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full">
-            In-person
-          </div>
-          <div class="absolute top-4 right-4 bg-yellow-500/80 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full">
-            Web3
-          </div>
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-semibold mb-3">Web3 Builders Hackathon</h3>
-          <div class="flex flex-wrap gap-4 mb-4 text-sm text-gray-300">
-            <div class="flex items-center gap-2 bg-secondary-500/10 text-secondary-300 px-3 py-1 rounded-full">
-              <i class="fas fa-clock"></i>
-              <span>7 days left</span>
-            </div>
-            <div class="flex items-center">Apr 20 - Apr 22, 2025</div>
-          </div>
-          <div class="flex flex-wrap justify-between">
-            <div class="text-secondary-300 font-medium">$50,000 in prizes</div>
-            <div class="text-gray-300">1250 participants</div>
-          </div>
-        </div>
-      </div>
-      <!-- Hackathon Card 4 -->
-      <div class="glass rounded-3xl overflow-hidden transform transition-all duration-500 hover:scale-[1.03] hover:shadow-xl">
-        <div class="relative h-48">
-          <img 
-                        src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/challenge_thumbnails/002/581/606/datas/medium.png" 
-                        alt="Education Tech Hackathon" 
-                        class="w-full h-full object-cover"
-                    />
-          <div class="absolute top-4 left-4 bg-primary-500/80 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full">
-            Online
-          </div>
-          <div class="absolute top-4 right-4 bg-green-500/80 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full">
-            Education
-          </div>
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-semibold mb-3">Education Tech Hackathon</h3>
-          <div class="flex flex-wrap gap-4 mb-4 text-sm text-gray-300">
-            <div class="flex items-center gap-2 bg-secondary-500/10 text-secondary-300 px-3 py-1 rounded-full">
-              <i class="fas fa-clock"></i>
-              <span>21 days left</span>
-            </div>
-            <div class="flex items-center">Apr 15 - May 20, 2025</div>
-          </div>
-          <div class="flex flex-wrap justify-between">
-            <div class="text-secondary-300 font-medium">$35,000 in prizes</div>
-            <div class="text-gray-300">980 participants</div>
-          </div>
-        </div>
-      </div>
-      <!-- Hackathon Card 5 -->
-      <div class="glass rounded-3xl overflow-hidden transform transition-all duration-500 hover:scale-[1.03] hover:shadow-xl">
-        <div class="relative h-48">
-          <img 
-                        src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/challenge_thumbnails/002/581/607/datas/medium.png" 
-                        alt="Social Impact Challenge" 
-                        class="w-full h-full object-cover"
-                    />
-          <div class="absolute top-4 left-4 bg-primary-500/80 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full">
-            Online
-          </div>
-          <div class="absolute top-4 right-4 bg-pink-500/80 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full">
-            Social Good
-          </div>
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-semibold mb-3">Social Impact Challenge</h3>
-          <div class="flex flex-wrap gap-4 mb-4 text-sm text-gray-300">
-            <div class="flex items-center gap-2 bg-secondary-500/10 text-secondary-300 px-3 py-1 rounded-full">
-              <i class="fas fa-clock"></i>
-              <span>18 days left</span>
-            </div>
-            <div class="flex items-center">Apr 12 - May 10, 2025</div>
-          </div>
-          <div class="flex flex-wrap justify-between">
-            <div class="text-secondary-300 font-medium">$45,000 in prizes</div>
-            <div class="text-gray-300">1560 participants</div>
-          </div>
-        </div>
-      </div>
-      <!-- Hackathon Card 6 -->
-      <div class="glass rounded-3xl overflow-hidden transform transition-all duration-500 hover:scale-[1.03] hover:shadow-xl">
-        <div class="relative h-48">
-          <img 
-                        src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/challenge_thumbnails/002/581/608/datas/medium.png" 
-                        alt="Beginner Coders Hackathon" 
-                        class="w-full h-full object-cover"
-                    />
-          <div class="absolute top-4 left-4 bg-primary-500/80 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full">
-            Online
-          </div>
-          <div class="absolute top-4 right-4 bg-orange-500/80 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full">
-            Beginner Friendly
-          </div>
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-semibold mb-3">Beginner Coders Hackathon</h3>
-          <div class="flex flex-wrap gap-4 mb-4 text-sm text-gray-300">
-            <div class="flex items-center gap-2 bg-secondary-500/10 text-secondary-300 px-3 py-1 rounded-full">
-              <i class="fas fa-clock"></i>
-              <span>25 days left</span>
-            </div>
-            <div class="flex items-center">Apr 05 - May 15, 2025</div>
-          </div>
-          <div class="flex flex-wrap justify-between">
-            <div class="text-secondary-300 font-medium">$20,000 in prizes</div>
-            <div class="text-gray-300">2750 participants</div>
-          </div>
-        </div>
-      </div>
-      <!-- Additional Hackathon Cards (7-12) -->
-      <!-- Hackathon Card 7 -->
-      <div class="glass rounded-3xl overflow-hidden transform transition-all duration-500 hover:scale-[1.03] hover:shadow-xl">
-        <div class="relative h-48">
-          <img 
-                        src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/challenge_thumbnails/002/581/609/datas/medium.png" 
-                        alt="Mobile App Challenge" 
-                        class="w-full h-full object-cover"
-                    />
-          <div class="absolute top-4 left-4 bg-purple-500/80 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full">
-            Hybrid
-          </div>
-          <div class="absolute top-4 right-4 bg-red-500/80 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full">
-            Mobile
-          </div>
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-semibold mb-3">Mobile App Challenge</h3>
-          <div class="flex flex-wrap gap-4 mb-4 text-sm text-gray-300">
-            <div class="flex items-center gap-2 bg-secondary-500/10 text-secondary-300 px-3 py-1 rounded-full">
-              <i class="fas fa-clock"></i>
-              <span>12 days left</span>
-            </div>
-            <div class="flex items-center">Apr 18 - May 05, 2025</div>
-          </div>
-          <div class="flex flex-wrap justify-between">
-            <div class="text-secondary-300 font-medium">$30,000 in prizes</div>
-            <div class="text-gray-300">1120 participants</div>
-          </div>
-        </div>
-      </div>
-      <!-- Hackathon Cards 8-12 (similar structure, different data) -->
-      <!-- For brevity, I'll skip cards 8-12 but they would follow the same pattern -->
-    </div>
-    <!-- Pagination -->
-    <div class="flex justify-center">
-      <nav class="glass rounded-full px-2 py-1 inline-flex">
-        <button class="p-2 rounded-full hover:bg-white/10 text-gray-400 transition-colors" aria-label="Previous page">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-        <button class="p-2 w-10 rounded-full bg-white/10 text-secondary-300 transition-colors">1</button>
-        <button class="p-2 w-10 rounded-full hover:bg-white/10 text-gray-300 hover:text-secondary-300 transition-colors">2</button>
-        <button class="p-2 w-10 rounded-full hover:bg-white/10 text-gray-300 hover:text-secondary-300 transition-colors">3</button>
-        <button class="p-2 w-10 rounded-full hover:bg-white/10 text-gray-300 hover:text-secondary-300 transition-colors">4</button>
-        <button class="p-2 w-10 rounded-full hover:bg-white/10 text-gray-300 hover:text-secondary-300 transition-colors">5</button>
-        <button class="p-2 rounded-full hover:bg-white/10 text-gray-300 hover:text-secondary-300 transition-colors" aria-label="Next page">
-          <i class="fas fa-chevron-right"></i>
-        </button>
-      </nav>
     </div>
   </div>
-</main>

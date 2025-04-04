@@ -1,309 +1,341 @@
-<main>
-  <!-- Hero Section -->
-  <section class="py-16 md:py-24">
-    <div class="container mx-auto px-4">
+ <!-- Hero Section -->
+  <div class="relative overflow-hidden pt-20 pb-16 md:pt-32 md:pb-24">
+    <div class="container px-4 mx-auto relative z-10">
       <div class="flex flex-col md:flex-row items-center gap-12">
-        <div class="w-full md:w-1/2 glass rounded-3xl p-8 transform transition-all duration-500 hover:scale-[1.02] hover:shadow-xl">
-          <h1 class="text-4xl md:text-5xl font-bold mb-4 text-gradient">The home for hackathons</h1>
-          <p class="text-lg text-gray-200 mb-8">Where organizations and developers come together to build, inspire, and innovate.</p>
+        <div class="md:w-1/2 md:pr-8">
+          <h1 class="text-4xl font-extrabold text-gray-900 sm:text-5xl md:text-6xl mb-6">
+            The home for <span class="text-teal-600">hackathons</span>
+          </h1>
+          <p class="text-lg text-gray-600 mb-8 max-w-lg">
+            Where organizations and developers come together to build, inspire, and innovate.
+          </p>
           <div class="flex flex-col sm:flex-row gap-4">
-            <a href="#" class="flex items-center justify-between gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 transition-colors group">
-              <span>For organizers</span>
-              <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+            <a href="#" class="px-6 py-3 rounded-full text-white bg-teal-600 hover:bg-teal-700 font-medium shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300 text-center">
+              For organizers
             </a>
-            <a href="#" class="flex items-center justify-between gap-2 px-6 py-3 rounded-full glass hover:bg-white/20 transition-colors group">
-              <span>For participants</span>
-              <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+            <a href="hackathon-listing.html" class="px-6 py-3 rounded-full text-teal-600 bg-white border border-teal-600 hover:bg-teal-50 font-medium shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300 text-center">
+              For participants
             </a>
           </div>
         </div>
-        <div class="w-full md:w-1/2 flex justify-center">
-          <div class="relative w-full max-w-lg">
-            <img 
-                            src="https://devpost.com/assets/reimagine2/home/hero-c0a1197d0fc6a3f88e1e7b1958bb808c2a7a65629d69a71c3c53feb2710da7d7.png" 
-                            alt="Developers collaborating" 
-                            class="object-contain"
-                        />
+        <div class="md:w-1/2">
+          <div class="relative">
+            <div class="absolute -inset-0.5 bg-gradient-to-r from-teal-500 to-blue-500 rounded-2xl blur-md opacity-60"></div>
+            <div class="glass-card p-1 rounded-2xl relative">
+              <img 
+                src="https://placehold.co/600x400/134e4a/ffffff?text=Hackathon+Collaboration" 
+                alt="Hackathon participants collaborating" 
+                class="w-full h-auto rounded-xl"
+              />
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
-  <!-- Trusted By Section -->
-  <section class="py-12">
-    <div class="container mx-auto px-4">
-      <div class="glass rounded-3xl p-8 transform transition-all duration-500 hover:scale-[1.01] hover:shadow-xl">
-        <h3 class="text-center text-sm font-semibold tracking-widest mb-8 text-gray-300">TRUSTED BY THE WORLDS LEADING ORGANIZATIONS</h3>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-8 items-center justify-items-center">
-          <div class="w-24 h-12 relative grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100">
-            <img src="https://devpost-archive-prod.s3.amazonaws.com/uploads/organization/image/1/microsoft-logo.png" alt="Microsoft" class="object-contain w-full h-full">
-          </div>
-          <div class="w-24 h-12 relative grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100">
-            <img src="https://devpost-archive-prod.s3.amazonaws.com/uploads/organization/image/2/google-logo.png" alt="Google" class="object-contain w-full h-full">
-          </div>
-          <div class="w-24 h-12 relative grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100">
-            <img src="https://devpost-archive-prod.s3.amazonaws.com/uploads/organization/image/3/meta-logo.png" alt="Meta" class="object-contain w-full h-full">
-          </div>
-          <div class="w-24 h-12 relative grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100">
-            <img src="https://devpost-archive-prod.s3.amazonaws.com/uploads/organization/image/4/aws-logo.png" alt="AWS" class="object-contain w-full h-full">
-          </div>
-          <div class="w-24 h-12 relative grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100">
-            <img src="https://devpost-archive-prod.s3.amazonaws.com/uploads/organization/image/5/okta-logo.png" alt="Okta" class="object-contain w-full h-full">
-          </div>
-          <div class="w-24 h-12 relative grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100">
-            <img src="https://devpost-archive-prod.s3.amazonaws.com/uploads/organization/image/6/square-logo.png" alt="Square" class="object-contain w-full h-full">
-          </div>
-          <div class="w-24 h-12 relative grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100">
-            <img src="https://devpost-archive-prod.s3.amazonaws.com/uploads/organization/image/7/atlassian-logo.png" alt="Atlassian" class="object-contain w-full h-full">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  </div>
+
   <!-- Search Section -->
-  <section class="py-12">
-    <div class="container mx-auto px-4">
-      <div class="glass rounded-3xl p-6 flex flex-col sm:flex-row gap-4 transform transition-all duration-500 hover:scale-[1.01] hover:shadow-xl">
-        <input 
-                    type="text" 
-                    id="search-input"
-                    placeholder="Find your next hackathon" 
-                    class="flex-1 bg-white/5 border border-white/10 rounded-full px-6 py-3 focus:outline-none focus:ring-2 focus:ring-secondary-400 text-white placeholder-gray-400"
-                />
-        <button 
-                    id="search-button"
-                    class="px-6 py-3 rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 transition-colors font-medium"
-                >
-          Search hackathons
-        </button>
+  <div class="py-10">
+    <div class="container px-4 mx-auto">
+      <div class="max-w-3xl mx-auto">
+        <div class="glass-card p-1 rounded-full">
+          <div class="relative bg-white/70 backdrop-blur-md rounded-full">
+            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
+            <input
+              type="text"
+              class="w-full pl-12 pr-32 py-6 bg-transparent border-none focus:ring-2 focus:ring-teal-500 focus:ring-opacity-50 rounded-full"
+              placeholder="Find your next hackathon"
+            />
+            <div class="absolute inset-y-0 right-2 flex items-center">
+              <button class="px-4 py-2 rounded-full text-white bg-teal-600 hover:bg-teal-700 transition-colors">
+                Search
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </section>
-  <!-- Featured Hackathons Section -->
-  <section class="py-12">
-    <div class="container mx-auto px-4">
-      <div class="flex justify-between items-center mb-8">
-        <h2 class="text-2xl md:text-3xl font-bold">Hackathons for you</h2>
-        <a href="#" class="flex items-center gap-2 text-secondary-300 hover:text-secondary-400 transition-colors group">
-          Edit your recommendations 
-          <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
-        </a>
+  </div>
+
+  <!-- Trusted By Section -->
+  <div class="py-12">
+    <div class="container px-4 mx-auto">
+      <p class="text-center text-sm font-semibold uppercase text-gray-500 tracking-wide mb-6">
+        Trusted by the world's leading organizations
+      </p>
+      <div class="glass-card p-0.5 rounded-xl">
+        <div class="bg-white/50 backdrop-blur-sm rounded-xl py-8 px-4">
+          <div class="grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-5">
+            <div class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">
+              <img class="h-12 filter grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300" 
+                   src="https://placehold.co/120x48/e2e8f0/475569?text=Microsoft" 
+                   alt="Microsoft" />
+            </div>
+            <div class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">
+              <img class="h-12 filter grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300" 
+                   src="https://placehold.co/120x48/e2e8f0/475569?text=Google" 
+                   alt="Google" />
+            </div>
+            <div class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">
+              <img class="h-12 filter grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300" 
+                   src="https://placehold.co/120x48/e2e8f0/475569?text=Meta" 
+                   alt="Meta" />
+            </div>
+            <div class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">
+              <img class="h-12 filter grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300" 
+                   src="https://placehold.co/120x48/e2e8f0/475569?text=AWS" 
+                   alt="AWS" />
+            </div>
+            <div class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">
+              <img class="h-12 filter grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300" 
+                   src="https://placehold.co/120x48/e2e8f0/475569?text=Atlassian" 
+                   alt="Atlassian" />
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    </div>
+  </div>
+
+  <!-- Featured Hackathons -->
+  <div class="py-16 relative">
+    <div class="container px-4 mx-auto">
+      <div class="lg:text-center mb-10">
+        <h2 class="text-base text-teal-600 font-semibold tracking-wide uppercase">Featured</h2>
+        <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+          Upcoming Hackathons
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
         <!-- Hackathon Card 1 -->
-        <div class="glass rounded-3xl overflow-hidden transform transition-all duration-500 hover:scale-[1.03] hover:shadow-xl">
-          <div class="relative h-48">
-            <img 
-                            src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/challenge_thumbnails/002/581/603/datas/medium.png" 
-                            alt="Agentforce Virtual Hackathon" 
-                            class="w-full h-full object-cover"
-                        />
-            <div class="absolute top-4 left-4 bg-primary-500/80 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full">
-              Online
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-semibold mb-3">Agentforce Virtual Hackathon</h3>
-            <div class="flex flex-wrap gap-4 mb-4 text-sm text-gray-300">
-              <div class="flex items-center gap-2 bg-secondary-500/10 text-secondary-300 px-3 py-1 rounded-full">
-                <i class="fas fa-clock"></i>
-                <span>29 days left</span>
+        <div class="glass-card p-0.5 rounded-xl">
+          <div class="bg-white/70 backdrop-blur-md rounded-xl p-6 h-full flex flex-col transition-all duration-300 hover:transform hover:scale-105 hover:bg-white/90">
+            <div class="flex items-center mb-4">
+              <div class="flex-shrink-0">
+                <div class="relative">
+                  <div class="absolute -inset-0.5 bg-gradient-to-r from-teal-500 to-blue-500 rounded-md blur-sm opacity-70"></div>
+                  <img class="relative h-12 w-12 rounded-md" src="https://placehold.co/48x48/0d9488/ffffff?text=AI" alt="AI Innovation Hackathon logo" />
+                </div>
               </div>
-              <div class="flex items-center">Mar 05 - Apr 30, 2025</div>
+              <div class="ml-4">
+                <h3 class="text-lg leading-6 font-medium text-gray-900">AI Innovation Hackathon</h3>
+                <p class="text-sm text-gray-500">Online • Mar 15 - Apr 15, 2025</p>
+              </div>
             </div>
-            <div class="flex flex-wrap justify-between">
-              <div class="text-secondary-300 font-medium">$140,000 in prizes</div>
-              <div class="text-gray-300">4982 participants</div>
+            <div class="mt-2 flex-grow">
+              <p class="text-base text-gray-600">Build the next generation of AI-powered applications and compete for amazing prizes.</p>
+            </div>
+            <div class="mt-6 flex items-center">
+              <div class="text-sm text-gray-500">
+                <span class="font-medium text-teal-600">$50,000</span> in prizes
+              </div>
+              <span class="mx-2 text-gray-300">•</span>
+              <div class="text-sm text-gray-500">
+                <span class="font-medium text-gray-900">2,500+</span> participants
+              </div>
+            </div>
+            <div class="mt-5">
+              <a 
+                href="hackathon-details.html" 
+                class="inline-flex items-center text-teal-600 hover:text-teal-700 font-medium"
+              >
+                View details
+                <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
             </div>
           </div>
         </div>
+        
         <!-- Hackathon Card 2 -->
-        <div class="glass rounded-3xl overflow-hidden transform transition-all duration-500 hover:scale-[1.03] hover:shadow-xl">
-          <div class="relative h-48">
-            <img 
-                            src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/challenge_thumbnails/002/581/604/datas/medium.png" 
-                            alt="AI Innovation Challenge" 
-                            class="w-full h-full object-cover"
-                        />
-            <div class="absolute top-4 left-4 bg-primary-500/80 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full">
-              Hybrid
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-semibold mb-3">AI Innovation Challenge</h3>
-            <div class="flex flex-wrap gap-4 mb-4 text-sm text-gray-300">
-              <div class="flex items-center gap-2 bg-secondary-500/10 text-secondary-300 px-3 py-1 rounded-full">
-                <i class="fas fa-clock"></i>
-                <span>15 days left</span>
+        <div class="glass-card p-0.5 rounded-xl">
+          <div class="bg-white/70 backdrop-blur-md rounded-xl p-6 h-full flex flex-col transition-all duration-300 hover:transform hover:scale-105 hover:bg-white/90">
+            <div class="flex items-center mb-4">
+              <div class="flex-shrink-0">
+                <div class="relative">
+                  <div class="absolute -inset-0.5 bg-gradient-to-r from-teal-500 to-blue-500 rounded-md blur-sm opacity-70"></div>
+                  <img class="relative h-12 w-12 rounded-md" src="https://placehold.co/48x48/0d9488/ffffff?text=BC" alt="Blockchain Revolution logo" />
+                </div>
               </div>
-              <div class="flex items-center">Apr 10 - May 15, 2025</div>
+              <div class="ml-4">
+                <h3 class="text-lg leading-6 font-medium text-gray-900">Blockchain Revolution</h3>
+                <p class="text-sm text-gray-500">Online • Apr 1 - Apr 30, 2025</p>
+              </div>
             </div>
-            <div class="flex flex-wrap justify-between">
-              <div class="text-secondary-300 font-medium">$75,000 in prizes</div>
-              <div class="text-gray-300">2145 participants</div>
+            <div class="mt-2 flex-grow">
+              <p class="text-base text-gray-600">Revolutionize finance, supply chains, and more with blockchain technology.</p>
+            </div>
+            <div class="mt-6 flex items-center">
+              <div class="text-sm text-gray-500">
+                <span class="font-medium text-teal-600">$75,000</span> in prizes
+              </div>
+              <span class="mx-2 text-gray-300">•</span>
+              <div class="text-sm text-gray-500">
+                <span class="font-medium text-gray-900">1,800+</span> participants
+              </div>
+            </div>
+            <div class="mt-5">
+              <a 
+                href="hackathon-details.html" 
+                class="inline-flex items-center text-teal-600 hover:text-teal-700 font-medium"
+              >
+                View details
+                <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
             </div>
           </div>
         </div>
+        
         <!-- Hackathon Card 3 -->
-        <div class="glass rounded-3xl overflow-hidden transform transition-all duration-500 hover:scale-[1.03] hover:shadow-xl">
-          <div class="relative h-48">
-            <img 
-                            src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/challenge_thumbnails/002/581/605/datas/medium.png" 
-                            alt="Web3 Builders Hackathon" 
-                            class="w-full h-full object-cover"
-                        />
-            <div class="absolute top-4 left-4 bg-primary-500/80 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full">
-              In-person
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-semibold mb-3">Web3 Builders Hackathon</h3>
-            <div class="flex flex-wrap gap-4 mb-4 text-sm text-gray-300">
-              <div class="flex items-center gap-2 bg-secondary-500/10 text-secondary-300 px-3 py-1 rounded-full">
-                <i class="fas fa-clock"></i>
-                <span>7 days left</span>
+        <div class="glass-card p-0.5 rounded-xl">
+          <div class="bg-white/70 backdrop-blur-md rounded-xl p-6 h-full flex flex-col transition-all duration-300 hover:transform hover:scale-105 hover:bg-white/90">
+            <div class="flex items-center mb-4">
+              <div class="flex-shrink-0">
+                <div class="relative">
+                  <div class="absolute -inset-0.5 bg-gradient-to-r from-teal-500 to-blue-500 rounded-md blur-sm opacity-70"></div>
+                  <img class="relative h-12 w-12 rounded-md" src="https://placehold.co/48x48/0d9488/ffffff?text=CT" alt="Climate Tech Summit logo" />
+                </div>
               </div>
-              <div class="flex items-center">Apr 20 - Apr 22, 2025</div>
+              <div class="ml-4">
+                <h3 class="text-lg leading-6 font-medium text-gray-900">Climate Tech Summit</h3>
+                <p class="text-sm text-gray-500">Hybrid • May 10 - May 25, 2025</p>
+              </div>
             </div>
-            <div class="flex flex-wrap justify-between">
-              <div class="text-secondary-300 font-medium">$50,000 in prizes</div>
-              <div class="text-gray-300">1250 participants</div>
+            <div class="mt-2 flex-grow">
+              <p class="text-base text-gray-600">Develop innovative solutions to combat climate change and promote sustainability.</p>
+            </div>
+            <div class="mt-6 flex items-center">
+              <div class="text-sm text-gray-500">
+                <span class="font-medium text-teal-600">$100,000</span> in prizes
+              </div>
+              <span class="mx-2 text-gray-300">•</span>
+              <div class="text-sm text-gray-500">
+                <span class="font-medium text-gray-900">3,200+</span> participants
+              </div>
+            </div>
+            <div class="mt-5">
+              <a 
+                href="hackathon-details.html" 
+                class="inline-flex items-center text-teal-600 hover:text-teal-700 font-medium"
+              >
+                View details
+                <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
             </div>
           </div>
         </div>
       </div>
-      <div class="mt-8 text-center">
-        <a href="#" class="inline-flex items-center gap-2 px-6 py-3 rounded-full glass hover:bg-white/20 transition-colors group">
-          <span>View all hackathons</span>
-          <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+      
+      <div class="mt-12 text-center">
+        <a href="hackathon-listing.html" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-teal-700 bg-teal-100 hover:bg-teal-200 transition-colors">
+          View all hackathons
+          <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
         </a>
       </div>
     </div>
-  </section>
-  <!-- Themes Section -->
-  <section class="py-12">
-    <div class="container mx-auto px-4">
-      <div class="mb-8">
-        <h2 class="text-2xl md:text-3xl font-bold">Top hackathon themes</h2>
-      </div>
-      <div class="glass rounded-3xl overflow-hidden transform transition-all duration-500 hover:scale-[1.01] hover:shadow-xl">
-        <div class="overflow-x-auto">
-          <table class="w-full">
-            <thead>
-              <tr class="border-b border-white/10 text-left text-gray-300">
-                <th class="px-6 py-4 font-medium">Theme</th>
-                <th class="px-6 py-4 font-medium">Hackathons</th>
-                <th class="px-6 py-4 font-medium">Total prizes</th>
-                <th class="px-6 py-4"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="border-b border-white/10 hover:bg-white/5 transition-colors">
-                <td class="px-6 py-4">
-                  <div class="flex items-center gap-3">
-                    <span class="text-gray-400">1.</span>
-                    <a href="#" class="text-secondary-300 hover:text-secondary-400 transition-colors px-3 py-1 bg-primary-500/10 rounded-full">
-                      Beginner Friendly
-                    </a>
-                  </div>
-                </td>
-                <td class="px-6 py-4">61</td>
-                <td class="px-6 py-4">$1,115,000</td>
-                <td class="px-6 py-4 text-right">
-                  <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                    <i class="fas fa-arrow-right"></i>
-                  </a>
-                </td>
-              </tr>
-              <tr class="border-b border-white/10 hover:bg-white/5 transition-colors">
-                <td class="px-6 py-4">
-                  <div class="flex items-center gap-3">
-                    <span class="text-gray-400">2.</span>
-                    <a href="#" class="text-secondary-300 hover:text-secondary-400 transition-colors px-3 py-1 bg-primary-500/10 rounded-full">
-                      Machine Learning/AI
-                    </a>
-                  </div>
-                </td>
-                <td class="px-6 py-4">40</td>
-                <td class="px-6 py-4">$593,000</td>
-                <td class="px-6 py-4 text-right">
-                  <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                    <i class="fas fa-arrow-right"></i>
-                  </a>
-                </td>
-              </tr>
-              <tr class="border-b border-white/10 hover:bg-white/5 transition-colors">
-                <td class="px-6 py-4">
-                  <div class="flex items-center gap-3">
-                    <span class="text-gray-400">3.</span>
-                    <a href="#" class="text-secondary-300 hover:text-secondary-400 transition-colors px-3 py-1 bg-primary-500/10 rounded-full">
-                      Social Good
-                    </a>
-                  </div>
-                </td>
-                <td class="px-6 py-4">34</td>
-                <td class="px-6 py-4">$910,000</td>
-                <td class="px-6 py-4 text-right">
-                  <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                    <i class="fas fa-arrow-right"></i>
-                  </a>
-                </td>
-              </tr>
-              <tr class="border-b border-white/10 hover:bg-white/5 transition-colors">
-                <td class="px-6 py-4">
-                  <div class="flex items-center gap-3">
-                    <span class="text-gray-400">4.</span>
-                    <a href="#" class="text-secondary-300 hover:text-secondary-400 transition-colors px-3 py-1 bg-primary-500/10 rounded-full">
-                      Open Ended
-                    </a>
-                  </div>
-                </td>
-                <td class="px-6 py-4">32</td>
-                <td class="px-6 py-4">$622,000</td>
-                <td class="px-6 py-4 text-right">
-                  <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                    <i class="fas fa-arrow-right"></i>
-                  </a>
-                </td>
-              </tr>
-              <tr class="hover:bg-white/5 transition-colors">
-                <td class="px-6 py-4">
-                  <div class="flex items-center gap-3">
-                    <span class="text-gray-400">5.</span>
-                    <a href="#" class="text-secondary-300 hover:text-secondary-400 transition-colors px-3 py-1 bg-primary-500/10 rounded-full">
-                      Education
-                    </a>
-                  </div>
-                </td>
-                <td class="px-6 py-4">21</td>
-                <td class="px-6 py-4">$351,000</td>
-                <td class="px-6 py-4 text-right">
-                  <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                    <i class="fas fa-arrow-right"></i>
-                  </a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+  </div>
+
+  <!-- Top Hackathon Themes -->
+  <div class="py-16">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-extrabold text-gray-900 mb-8">
+        Top hackathon themes
+      </h2>
+      
+      <div class="glass-card p-0.5 rounded-xl overflow-hidden">
+        <div class="bg-white/80 backdrop-blur-lg rounded-lg">
+          <div class="border-b border-gray-200/80">
+            <div class="grid grid-cols-12 py-4 px-6 text-sm font-medium text-gray-500">
+              <div class="col-span-4">Theme</div>
+              <div class="col-span-4 text-center">Hackathons</div>
+              <div class="col-span-4 text-right">Total prizes</div>
+            </div>
+          </div>
+          
+          <div class="divide-y divide-gray-200/60">
+            <!-- Theme 1 -->
+            <div class="grid grid-cols-12 py-4 px-6 hover:bg-white/40 transition-colors">
+              <div class="col-span-4 flex items-center">
+                <a href="#" class="text-sm font-medium text-teal-600 hover:text-teal-800">Beginner Friendly</a>
+              </div>
+              <div class="col-span-4 text-center">79</div>
+              <div class="col-span-3 text-right">$1,131,000</div>
+              <div class="col-span-1 flex justify-end">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+            
+            <!-- Theme 2 -->
+            <div class="grid grid-cols-12 py-4 px-6 hover:bg-white/40 transition-colors">
+              <div class="col-span-4 flex items-center">
+                <a href="#" class="text-sm font-medium text-teal-600 hover:text-teal-800">Machine Learning/AI</a>
+              </div>
+              <div class="col-span-4 text-center">54</div>
+              <div class="col-span-3 text-right">$607,000</div>
+              <div class="col-span-1 flex justify-end">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+            
+            <!-- Theme 3 -->
+            <div class="grid grid-cols-12 py-4 px-6 hover:bg-white/40 transition-colors">
+              <div class="col-span-4 flex items-center">
+                <a href="#" class="text-sm font-medium text-teal-600 hover:text-teal-800">Social Good</a>
+              </div>
+              <div class="col-span-4 text-center">42</div>
+              <div class="col-span-3 text-right">$920,000</div>
+              <div class="col-span-1 flex justify-end">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+            
+            <!-- Theme 4 -->
+            <div class="grid grid-cols-12 py-4 px-6 hover:bg-white/40 transition-colors">
+              <div class="col-span-4 flex items-center">
+                <a href="#" class="text-sm font-medium text-teal-600 hover:text-teal-800">Open Ended</a>
+              </div>
+              <div class="col-span-4 text-center">39</div>
+              <div class="col-span-3 text-right">$625,000</div>
+              <div class="col-span-1 flex justify-end">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+            
+            <!-- Theme 5 -->
+            <div class="grid grid-cols-12 py-4 px-6 hover:bg-white/40 transition-colors">
+              <div class="col-span-4 flex items-center">
+                <a href="#" class="text-sm font-medium text-teal-600 hover:text-teal-800">Education</a>
+              </div>
+              <div class="col-span-4 text-center">24</div>
+              <div class="col-span-3 text-right">$354,000</div>
+              <div class="col-span-1 flex justify-end">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </section>
-  <!-- CTA Section -->
-  <section class="py-16">
-    <div class="container mx-auto px-4">
-      <div class="glass rounded-3xl p-8 md:p-12 text-center transform transition-all duration-500 hover:scale-[1.01] hover:shadow-xl">
-        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gradient">Ready to start your hackathon journey?</h2>
-        <p class="text-lg text-gray-200 mb-8 max-w-2xl mx-auto">Join thousands of developers and organizations building the future through collaborative innovation.</p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="#" class="px-8 py-4 rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 transition-colors font-medium">
-            Create an account
-          </a>
-          <a href="#" class="px-8 py-4 rounded-full glass hover:bg-white/20 transition-colors">
-            Browse hackathons
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
+  </div>

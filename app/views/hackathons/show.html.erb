@@ -1,986 +1,432 @@
-<main class="py-8">
-  <div class="container mx-auto px-4">
-    <!-- Breadcrumbs -->
-    <div class="mb-6">
-      <nav class="flex" aria-label="Breadcrumb">
-        <ol class="inline-flex items-center space-x-1 md:space-x-3">
-          <li class="inline-flex items-center">
-            <a href="index.html" class="text-gray-400 hover:text-secondary-300 transition-colors">
-              Home
-            </a>
-          </li>
-          <li>
-            <div class="flex items-center">
-              <i class="fas fa-chevron-right text-gray-400 text-xs mx-2"></i>
-              <a href="hackathons.html" class="text-gray-400 hover:text-secondary-300 transition-colors">
-                Hackathons
-              </a>
+ <!-- Hero Banner -->
+<div class="relative overflow-hidden pt-16 pb-20 md:pt-24 md:pb-28">
+  <div class="container px-4 mx-auto relative z-10">
+    <div class="max-w-5xl mx-auto">
+      <div class="glass-card p-8 rounded-2xl">
+        <div class="flex flex-col md:flex-row items-center gap-8">
+          <div class="md:w-2/3">
+            <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100/80 text-green-800 mb-4">
+              <span class="w-2 h-2 bg-green-500 rounded-full mr-1.5 inline-block"></span>
+              Active • 26 days left
             </div>
-          </li>
-          <li aria-current="page">
-            <div class="flex items-center">
-              <i class="fas fa-chevron-right text-gray-400 text-xs mx-2"></i>
-              <span class="text-gray-300">
-                <%= @hackathon.title %>
+            <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4">
+              AI Innovation Hackathon
+            </h1>
+            <div class="flex flex-wrap gap-4 text-sm text-gray-600 mb-6">
+              <span class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                </svg>
+                Online
+              </span>
+              <span class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                Mar 15 - Apr 15, 2025
+              </span>
+              <span class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+                2,500+ participants
               </span>
             </div>
-          </li>
-        </ol>
-      </nav>
-    </div>
-    <!-- Hackathon Header -->
-    <div class="relative mb-8">
-      <div class="h-64 md:h-80 rounded-3xl overflow-hidden">
-        <%= image_tag(@hackathon.image.url, class: "w-full h-full object-cover") %>
-        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 to-transparent"></div>
-      </div>
-      <div class="absolute bottom-0 left-0 right-0 p-6 md:p-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
-        <div>
-          <div class="flex flex-wrap gap-2 mb-2">
-            <span class="bg-purple-500/80 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full">
-              Hybrid
-            </span>
-            <span class="bg-secondary-500/80 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full">
-              AI/ML
-            </span>
-          </div>
-          <h1 class="text-3xl md:text-4xl font-bold text-white mb-2"><%= @hackathon.title %></h1>
-          <div class="flex flex-wrap items-center gap-4 text-gray-300">
-            <div class="flex items-center gap-2">
-              <i class="fas fa-calendar-alt"></i>
-              <span>Apr 10 - May 15, 2025</span>
+            <p class="text-lg text-gray-700 mb-8">
+              Build the next generation of AI-powered applications and compete for amazing prizes in this global hackathon.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a href="#register" class="px-6 py-3 rounded-full text-white bg-teal-600 hover:bg-teal-700 font-medium shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300 flex items-center">
+                Register Now
+              </a>
+              <button class="px-6 py-3 rounded-full text-gray-700 bg-white border border-gray-300 font-medium hover:bg-gray-50 transform hover:scale-105 transition duration-300 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                </svg>
+                Share
+              </button>
             </div>
-            <div class="flex items-center gap-2">
-              <i class="fas fa-map-marker-alt"></i>
-              <span>Global (Online) + San Francisco, CA</span>
+          </div>
+          <div class="md:w-1/3">
+            <div class="relative">
+              <div class="absolute -inset-0.5 bg-gradient-to-r from-teal-500 to-purple-500 rounded-xl blur-md opacity-60"></div>
+              <div class="glass-card p-1 rounded-xl relative">
+                <img 
+                    src="https://placehold.co/600x400/134e4a/ffffff?text=AI+Innovation" 
+                    alt="AI Innovation Hackathon" 
+                    class="w-full h-auto rounded-lg"
+                  />
+              </div>
             </div>
           </div>
         </div>
-        <div class="flex flex-col sm:flex-row gap-3">
-          <button id="save-button" class="flex items-center justify-center gap-2 px-4 py-2 rounded-full glass hover:bg-white/20 transition-colors">
-            <i class="far fa-bookmark"></i>
-            <span>Save</span>
-          </button>
-          <button id="share-button" class="flex items-center justify-center gap-2 px-4 py-2 rounded-full glass hover:bg-white/20 transition-colors">
-            <i class="fas fa-share-alt"></i>
-            <span>Share</span>
-          </button>
-          <a href="#register" class="flex items-center justify-center gap-2 px-6 py-2 rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 transition-colors font-medium">
-            <i class="fas fa-rocket"></i>
-            <span>Register Now</span>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Quick Stats -->
+<div class="container px-4 mx-auto -mt-8 mb-8 relative z-20">
+  <div class="max-w-5xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Prize Pool Stat -->
+      <div class="glass-card p-0.5 rounded-xl">
+        <div class="bg-white/70 backdrop-blur-md h-full rounded-xl p-6 text-center transition-transform hover:scale-105 duration-300">
+          <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-teal-100 text-teal-600 mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-1">Prize Pool</h3>
+          <p class="text-3xl font-bold text-teal-600">$50,000</p>
+        </div>
+      </div>
+      <!-- Participants Stat -->
+      <div class="glass-card p-0.5 rounded-xl">
+        <div class="bg-white/70 backdrop-blur-md h-full rounded-xl p-6 text-center transition-transform hover:scale-105 duration-300">
+          <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-teal-100 text-teal-600 mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-1">Participants</h3>
+          <p class="text-3xl font-bold text-teal-600">2,500+</p>
+        </div>
+      </div>
+      <!-- Duration Stat -->
+      <div class="glass-card p-0.5 rounded-xl">
+        <div class="bg-white/70 backdrop-blur-md h-full rounded-xl p-6 text-center transition-transform hover:scale-105 duration-300">
+          <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-teal-100 text-teal-600 mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-1">Duration</h3>
+          <p class="text-3xl font-bold text-teal-600">30 Days</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Main Content -->
+<div class="container px-4 mx-auto pb-16">
+  <div class="max-w-5xl mx-auto">
+    <div class="glass-card p-0.5 rounded-xl overflow-hidden mb-8">
+      <div class="bg-white/80 backdrop-blur-lg rounded-xl">
+        <!-- Tabs Navigation -->
+        <div class="border-b border-gray-200/60">
+          <div class="flex overflow-x-auto">
+            <button class="tab-active whitespace-nowrap py-4 px-6 font-medium text-sm" onclick="showTab('overview')">
+              Overview
+            </button>
+            <button class="text-gray-500 hover:text-gray-700 whitespace-nowrap py-4 px-6 font-medium text-sm" onclick="showTab('rules')">
+              Rules
+            </button>
+            <button class="text-gray-500 hover:text-gray-700 whitespace-nowrap py-4 px-6 font-medium text-sm" onclick="showTab('prizes')">
+              Prizes
+            </button>
+            <button class="text-gray-500 hover:text-gray-700 whitespace-nowrap py-4 px-6 font-medium text-sm" onclick="showTab('timeline')">
+              Timeline
+            </button>
+            <button class="text-gray-500 hover:text-gray-700 whitespace-nowrap py-4 px-6 font-medium text-sm" onclick="showTab('faq')">
+              FAQ
+            </button>
+          </div>
+        </div>
+        <!-- Tab Content -->
+        <div id="overview" class="p-6 md:p-8">
+          <div class="flex items-center mb-6">
+            <div class="w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center mr-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h2 class="text-2xl font-bold text-gray-900">Overview</h2>
+          </div>
+          <div class="prose max-w-none">
+            <p class="text-lg mb-6">
+              Welcome to the AI Innovation Hackathon! This is your opportunity to showcase your skills and creativity in building cutting-edge AI applications that solve real-world problems.
+            </p>
+            <p class="mb-6">
+              Artificial Intelligence is transforming industries across the globe. From healthcare to finance, education to entertainment, AI is revolutionizing how we live and work. This hackathon challenges you to push the boundaries of what's possible with AI.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              <div class="glass-card p-0.5 rounded-xl">
+                <div class="bg-teal-50/80 backdrop-blur-sm rounded-xl p-6 h-full transition-transform hover:scale-105 duration-300">
+                  <div class="flex items-center mb-4">
+                    <div class="w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center mr-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                      </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900">AI for Good</h3>
+                  </div>
+                  <p class="text-gray-600">Create solutions that address social challenges, environmental issues, or humanitarian needs.</p>
+                </div>
+              </div>
+              <div class="glass-card p-0.5 rounded-xl">
+                <div class="bg-teal-50/80 backdrop-blur-sm rounded-xl p-6 h-full transition-transform hover:scale-105 duration-300">
+                  <div class="flex items-center mb-4">
+                    <div class="w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center mr-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                      </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900">Next-Gen AI</h3>
+                  </div>
+                  <p class="text-gray-600">Develop cutting-edge AI models that push the boundaries of what's currently possible.</p>
+                </div>
+              </div>
+            </div>
+            <h3 class="text-xl font-semibold mb-4">Who Should Participate?</h3>
+            <p class="mb-6">
+              This hackathon is open to anyone with a passion for AI and technology. Whether you're a seasoned AI engineer, a data scientist, a UX designer, or just starting your journey in tech, there's a place for you in this hackathon.
+            </p>
+            <h3 class="text-xl font-semibold mb-4">What Will You Build?</h3>
+            <p>
+              You'll have 30 days to build an AI-powered application that solves real-world problems. Your solution could be in any domain - healthcare, education, climate, finance, accessibility, entertainment, and more. The only requirement is that it leverages AI in a meaningful way.
+            </p>
+          </div>
+        </div>
+        <div id="rules" class="p-6 md:p-8 hidden">
+          <div class="flex items-center mb-6">
+            <div class="w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center mr-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <h2 class="text-2xl font-bold text-gray-900">Rules</h2>
+          </div>
+          <ul class="space-y-4">
+            <li class="flex">
+              <div class="mr-4 text-teal-600">1.</div>
+              <p>All work must be original and created during the hackathon period.</p>
+            </li>
+            <li class="flex">
+              <div class="mr-4 text-teal-600">2.</div>
+              <p>Teams can consist of 1-4 members.</p>
+            </li>
+            <li class="flex">
+              <div class="mr-4 text-teal-600">3.</div>
+              <p>You may use open-source libraries and APIs, but must disclose their usage.</p>
+            </li>
+            <li class="flex">
+              <div class="mr-4 text-teal-600">4.</div>
+              <p>Submissions must include a working demo and source code.</p>
+            </li>
+            <li class="flex">
+              <div class="mr-4 text-teal-600">5.</div>
+              <p>Projects must be submitted before the deadline.</p>
+            </li>
+          </ul>
+        </div>
+        <div id="prizes" class="p-6 md:p-8 hidden">
+          <div class="flex items-center mb-6">
+            <div class="w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center mr-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+              </svg>
+            </div>
+            <h2 class="text-2xl font-bold text-gray-900">Prizes</h2>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="glass-card p-0.5 rounded-xl">
+              <div class="bg-white/70 backdrop-blur-md rounded-xl p-6 text-center h-full transition-transform hover:scale-105 duration-300">
+                <div class="bg-teal-600 text-white py-2 px-4 rounded-lg inline-block mb-4">
+                  1st Place
+                </div>
+                <div class="text-3xl font-bold text-teal-600 mb-2">$25,000</div>
+                <p class="text-gray-600 text-sm">Plus mentorship and investor introductions</p>
+              </div>
+            </div>
+            <div class="glass-card p-0.5 rounded-xl">
+              <div class="bg-white/70 backdrop-blur-md rounded-xl p-6 text-center h-full transition-transform hover:scale-105 duration-300">
+                <div class="bg-teal-600 text-white py-2 px-4 rounded-lg inline-block mb-4">
+                  2nd Place
+                </div>
+                <div class="text-3xl font-bold text-teal-600 mb-2">$15,000</div>
+                <p class="text-gray-600 text-sm">Plus cloud credits and tech support</p>
+              </div>
+            </div>
+            <div class="glass-card p-0.5 rounded-xl">
+              <div class="bg-white/70 backdrop-blur-md rounded-xl p-6 text-center h-full transition-transform hover:scale-105 duration-300">
+                <div class="bg-teal-600 text-white py-2 px-4 rounded-lg inline-block mb-4">
+                  3rd Place
+                </div>
+                <div class="text-3xl font-bold text-teal-600 mb-2">$10,000</div>
+                <p class="text-gray-600 text-sm">Plus tech gear and subscriptions</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="timeline" class="p-6 md:p-8 hidden">
+          <div class="flex items-center mb-6">
+            <div class="w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center mr-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <h2 class="text-2xl font-bold text-gray-900">Timeline</h2>
+          </div>
+          <div class="relative">
+            <div class="absolute left-7 top-0 bottom-0 w-0.5 bg-gradient-to-b from-teal-500 to-blue-500"></div>
+            <div class="relative flex items-start mb-8">
+              <div class="absolute left-4 -translate-x-1/2 w-6 h-6 bg-white rounded-full border-2 border-teal-500 z-10"></div>
+              <div class="ml-12">
+                <div class="glass-card p-0.5 rounded-xl">
+                  <div class="bg-white/70 backdrop-blur-md rounded-xl p-5">
+                    <div class="text-sm font-medium text-teal-600 mb-1">March 15, 2025</div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Kickoff Event</h3>
+                    <p class="text-gray-600">Virtual opening ceremony and team formation</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="relative flex items-start mb-8">
+              <div class="absolute left-4 -translate-x-1/2 w-6 h-6 bg-white rounded-full border-2 border-teal-500 z-10"></div>
+              <div class="ml-12">
+                <div class="glass-card p-0.5 rounded-xl">
+                  <div class="bg-white/70 backdrop-blur-md rounded-xl p-5">
+                    <div class="text-sm font-medium text-teal-600 mb-1">March 18, 2025</div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Workshops Begin</h3>
+                    <p class="text-gray-600">AI workshops and mentor sessions start</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="relative flex items-start mb-8">
+              <div class="absolute left-4 -translate-x-1/2 w-6 h-6 bg-white rounded-full border-2 border-teal-500 z-10"></div>
+              <div class="ml-12">
+                <div class="glass-card p-0.5 rounded-xl">
+                  <div class="bg-white/70 backdrop-blur-md rounded-xl p-5">
+                    <div class="text-sm font-medium text-teal-600 mb-1">March 30, 2025</div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Progress Check</h3>
+                    <p class="text-gray-600">Mid-hackathon progress submissions due</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="relative flex items-start mb-8">
+              <div class="absolute left-4 -translate-x-1/2 w-6 h-6 bg-white rounded-full border-2 border-teal-500 z-10"></div>
+              <div class="ml-12">
+                <div class="glass-card p-0.5 rounded-xl">
+                  <div class="bg-white/70 backdrop-blur-md rounded-xl p-5">
+                    <div class="text-sm font-medium text-teal-600 mb-1">April 14, 2025</div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Submission Deadline</h3>
+                    <p class="text-gray-600">Final projects due by 11:59 PM UTC</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="relative flex items-start mb-8">
+              <div class="absolute left-4 -translate-x-1/2 w-6 h-6 bg-white rounded-full border-2 border-teal-500 z-10"></div>
+              <div class="ml-12">
+                <div class="glass-card p-0.5 rounded-xl">
+                  <div class="bg-white/70 backdrop-blur-md rounded-xl p-5">
+                    <div class="text-sm font-medium text-teal-600 mb-1">April 15, 2025</div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Demo Day & Awards</h3>
+                    <p class="text-gray-600">Project demos and winners announcement</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="faq" class="p-6 md:p-8 hidden">
+          <div class="flex items-center mb-6">
+            <div class="w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center mr-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h2 class="text-2xl font-bold text-gray-900">FAQ</h2>
+          </div>
+          <div class="space-y-4">
+            <div class="glass-card p-0.5 rounded-xl">
+              <div class="bg-white/70 backdrop-blur-md rounded-xl">
+                <button class="flex justify-between items-center w-full px-6 py-4 text-left font-medium text-gray-800 hover:text-teal-600" onclick="toggleFAQ(this)">
+                  <span>Do I need to be an AI expert to participate?</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <div class="hidden px-6 pb-4 text-gray-600">
+                  Not at all! While having some knowledge of AI is helpful, we welcome participants of all skill levels. There will be mentors and resources available to help you along the way.
+                </div>
+              </div>
+            </div>
+            <div class="glass-card p-0.5 rounded-xl">
+              <div class="bg-white/70 backdrop-blur-md rounded-xl">
+                <button class="flex justify-between items-center w-full px-6 py-4 text-left font-medium text-gray-800 hover:text-teal-600" onclick="toggleFAQ(this)">
+                  <span>Can I join as an individual, or do I need a team?</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <div class="hidden px-6 pb-4 text-gray-600">
+                  You can join either way! You can register as an individual and form a team during the hackathon, or you can register with your pre-formed team of up to 4 members.
+                </div>
+              </div>
+            </div>
+            <div class="glass-card p-0.5 rounded-xl">
+              <div class="bg-white/70 backdrop-blur-md rounded-xl">
+                <button class="flex justify-between items-center w-full px-6 py-4 text-left font-medium text-gray-800 hover:text-teal-600" onclick="toggleFAQ(this)">
+                  <span>Is this hackathon open to international participants?</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <div class="hidden px-6 pb-4 text-gray-600">
+                  Yes, this is a global hackathon! Anyone from anywhere in the world can participate as long as they have internet access.
+                </div>
+              </div>
+            </div>
+            <div class="glass-card p-0.5 rounded-xl">
+              <div class="bg-white/70 backdrop-blur-md rounded-xl">
+                <button class="flex justify-between items-center w-full px-6 py-4 text-left font-medium text-gray-800 hover:text-teal-600" onclick="toggleFAQ(this)">
+                  <span>What kind of support will be provided during the hackathon?</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <div class="hidden px-6 pb-4 text-gray-600">
+                  We'll provide technical workshops, mentorship sessions, cloud computing resources, and access to various AI tools and APIs.
+                </div>
+              </div>
+            </div>
+            <div class="glass-card p-0.5 rounded-xl">
+              <div class="bg-white/70 backdrop-blur-md rounded-xl">
+                <button class="flex justify-between items-center w-full px-6 py-4 text-left font-medium text-gray-800 hover:text-teal-600" onclick="toggleFAQ(this)">
+                  <span>How will projects be judged?</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <div class="hidden px-6 pb-4 text-gray-600">
+                  Projects will be evaluated based on innovation, technical complexity, practical implementation, user experience, and potential impact.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Call to Action -->
+    <div class="glass-card p-0.5 rounded-2xl overflow-hidden">
+      <div class="relative bg-gradient-to-br from-teal-600 to-blue-600 rounded-2xl p-8 md:p-10 overflow-hidden">
+        <div class="absolute inset-0 bg-grid-white/10 bg-grid-16"></div>
+        <div class="relative z-10 text-center">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">Ready to join the innovation journey?</h2>
+          <p class="text-white/80 text-lg mb-6 max-w-2xl mx-auto">
+            Register now and be part of a global community building the next generation of AI solutions!
+          </p>
+          <a href="#" class="inline-flex items-center px-6 py-3 rounded-full text-teal-600 bg-white font-medium shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300">
+            Register for this Hackathon
+            <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
           </a>
         </div>
       </div>
     </div>
-    <!-- Stats Bar -->
-    <div class="glass rounded-2xl p-4 mb-8 grid grid-cols-2 md:grid-cols-4 gap-4">
-      <div class="flex flex-col items-center justify-center p-3 text-center">
-        <div class="text-3xl font-bold text-secondary-300 mb-1">$75,000</div>
-        <div class="text-sm text-gray-300">in prizes</div>
-      </div>
-      <div class="flex flex-col items-center justify-center p-3 text-center">
-        <div class="text-3xl font-bold text-secondary-300 mb-1">2,145</div>
-        <div class="text-sm text-gray-300">participants</div>
-      </div>
-      <div class="flex flex-col items-center justify-center p-3 text-center">
-        <div class="text-3xl font-bold text-secondary-300 mb-1">15</div>
-        <div class="text-sm text-gray-300">days left</div>
-      </div>
-      <div class="flex flex-col items-center justify-center p-3 text-center">
-        <div class="text-3xl font-bold text-secondary-300 mb-1">427</div>
-        <div class="text-sm text-gray-300">teams formed</div>
-      </div>
-    </div>
-    <!-- Main Content -->
-    <div class="flex flex-col lg:flex-row gap-8">
-      <!-- Left Column (Main Content) -->
-      <div class="w-full lg:w-2/3">
-        <!-- Tabs Navigation -->
-        <div class="glass rounded-t-2xl mb-px">
-          <nav class="flex overflow-x-auto" aria-label="Tabs">
-            <button class="tab-button active whitespace-nowrap px-6 py-4 font-medium border-b-2 border-secondary-400" data-tab="overview">
-              Overview
-            </button>
-            <button class="tab-button whitespace-nowrap px-6 py-4 font-medium border-b-2 border-transparent text-gray-300 hover:text-white" data-tab="prizes">
-              Prizes
-            </button>
-            <button class="tab-button whitespace-nowrap px-6 py-4 font-medium border-b-2 border-transparent text-gray-300 hover:text-white" data-tab="rules">
-              Rules
-            </button>
-            <button class="tab-button whitespace-nowrap px-6 py-4 font-medium border-b-2 border-transparent text-gray-300 hover:text-white" data-tab="resources">
-              Resources
-            </button>
-            <button class="tab-button whitespace-nowrap px-6 py-4 font-medium border-b-2 border-transparent text-gray-300 hover:text-white" data-tab="timeline">
-              Timeline
-            </button>
-            <button class="tab-button whitespace-nowrap px-6 py-4 font-medium border-b-2 border-transparent text-gray-300 hover:text-white" data-tab="faq">
-              FAQ
-            </button>
-          </nav>
-        </div>
-        <!-- Tab Content -->
-        <div class="glass rounded-b-2xl p-6 md:p-8 mb-8">
-          <!-- Overview Tab (Default Active) -->
-          <div id="overview" class="tab-content active">
-            <h2 class="text-2xl font-bold mb-6">About the Challenge</h2>
-            <div class="prose prose-invert max-w-none">
-              <%= @hackathon.description.html_safe  %>
-            </div>
-          </div>
-          <!-- Prizes Tab -->
-          <div id="prizes" class="tab-content hidden">
-            <h2 class="text-2xl font-bold mb-6">Prizes</h2>
-            <div class="space-y-8">
-              <!-- Grand Prize -->
-              <div class="glass-dark rounded-2xl p-6 relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-24 h-24">
-                  <div class="absolute transform rotate-45 bg-gradient-to-r from-yellow-400 to-yellow-600 text-white font-bold py-1 right-[-35px] top-[32px] w-[170px] text-center text-sm">
-                    GRAND PRIZE
-                  </div>
-                </div>
-                <div class="flex flex-col md:flex-row gap-6 items-start">
-                  <div class="flex-shrink-0 w-16 h-16 flex items-center justify-center bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-full text-white text-2xl font-bold">
-                    1st
-                  </div>
-                  <div>
-                    <h3 class="text-xl font-bold mb-2">$30,000 + Accelerator Access</h3>
-                    <p class="text-gray-300 mb-4">
-                      The winning team will receive $30,000 in cash and guaranteed acceptance into our partner accelerator program with up to $150,000 in additional funding opportunities.
-                    </p>
-                    <div class="flex flex-wrap gap-3">
-                      <span class="bg-white/10 px-3 py-1 rounded-full text-sm">Cash Prize</span>
-                      <span class="bg-white/10 px-3 py-1 rounded-full text-sm">Accelerator Access</span>
-                      <span class="bg-white/10 px-3 py-1 rounded-full text-sm">Mentorship</span>
-                      <span class="bg-white/10 px-3 py-1 rounded-full text-sm">Media Coverage</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Second Prize -->
-              <div class="glass-dark rounded-2xl p-6">
-                <div class="flex flex-col md:flex-row gap-6 items-start">
-                  <div class="flex-shrink-0 w-16 h-16 flex items-center justify-center bg-gradient-to-r from-gray-300 to-gray-500 rounded-full text-white text-2xl font-bold">
-                    2nd
-                  </div>
-                  <div>
-                    <h3 class="text-xl font-bold mb-2">$15,000 + Cloud Credits</h3>
-                    <p class="text-gray-300 mb-4">
-                      The second-place team will receive $15,000 in cash and $25,000 in cloud computing credits from our sponsors.
-                    </p>
-                    <div class="flex flex-wrap gap-3">
-                      <span class="bg-white/10 px-3 py-1 rounded-full text-sm">Cash Prize</span>
-                      <span class="bg-white/10 px-3 py-1 rounded-full text-sm">Cloud Credits</span>
-                      <span class="bg-white/10 px-3 py-1 rounded-full text-sm">Mentorship</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Third Prize -->
-              <div class="glass-dark rounded-2xl p-6">
-                <div class="flex flex-col md:flex-row gap-6 items-start">
-                  <div class="flex-shrink-0 w-16 h-16 flex items-center justify-center bg-gradient-to-r from-amber-600 to-amber-800 rounded-full text-white text-2xl font-bold">
-                    3rd
-                  </div>
-                  <div>
-                    <h3 class="text-xl font-bold mb-2">$10,000 + Hardware Package</h3>
-                    <p class="text-gray-300 mb-4">
-                      The third-place team will receive $10,000 in cash and a hardware package including GPUs for continued AI development.
-                    </p>
-                    <div class="flex flex-wrap gap-3">
-                      <span class="bg-white/10 px-3 py-1 rounded-full text-sm">Cash Prize</span>
-                      <span class="bg-white/10 px-3 py-1 rounded-full text-sm">Hardware</span>
-                      <span class="bg-white/10 px-3 py-1 rounded-full text-sm">Cloud Credits</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Category Prizes -->
-              <div>
-                <h3 class="text-xl font-bold mb-4">Category Prizes</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div class="glass-dark rounded-2xl p-6">
-                    <h4 class="text-lg font-semibold mb-2">Best AI Assistant</h4>
-                    <p class="text-gray-300 mb-3">$5,000 + API Credits</p>
-                  </div>
-                  <div class="glass-dark rounded-2xl p-6">
-                    <h4 class="text-lg font-semibold mb-2">Best Computer Vision Project</h4>
-                    <p class="text-gray-300 mb-3">$5,000 + GPU Cloud Access</p>
-                  </div>
-                  <div class="glass-dark rounded-2xl p-6">
-                    <h4 class="text-lg font-semibold mb-2">Best Generative AI Project</h4>
-                    <p class="text-gray-300 mb-3">$5,000 + Model Training Credits</p>
-                  </div>
-                  <div class="glass-dark rounded-2xl p-6">
-                    <h4 class="text-lg font-semibold mb-2">Best AI for Good Project</h4>
-                    <p class="text-gray-300 mb-3">$5,000 + Non-profit Partnership</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Rules Tab -->
-          <div id="rules" class="tab-content hidden">
-            <h2 class="text-2xl font-bold mb-6">Rules & Requirements</h2>
-            <div class="prose prose-invert max-w-none">
-              <h3 class="text-xl font-semibold mb-4">Eligibility</h3>
-              <ul class="list-disc pl-6 mb-6 space-y-2">
-                <li>Open to individuals 18 years or older</li>
-                <li>Teams can consist of 1-5 members</li>
-                <li>Participants can be from anywhere in the world</li>
-                <li>Employees of sponsoring organizations are not eligible to win prizes</li>
-              </ul>
-              <h3 class="text-xl font-semibold mb-4">Project Requirements</h3>
-              <ul class="list-disc pl-6 mb-6 space-y-2">
-                <li>All code must be created during the hackathon period</li>
-                <li>Pre-existing frameworks and libraries are allowed</li>
-                <li>Projects must incorporate AI/ML in a meaningful way</li>
-                <li>Submissions must include source code and a demo video</li>
-                <li>Projects must be original and not previously submitted to other competitions</li>
-              </ul>
-              <h3 class="text-xl font-semibold mb-4">Judging Criteria</h3>
-              <div class="space-y-4 mb-6">
-                <div>
-                  <h4 class="font-semibold">Innovation & Creativity (25%)</h4>
-                  <p class="text-gray-300">Originality of the idea and creative application of AI technology.</p>
-                </div>
-                <div>
-                  <h4 class="font-semibold">Technical Implementation (25%)</h4>
-                  <p class="text-gray-300">Quality of code, architecture, and technical execution.</p>
-                </div>
-                <div>
-                  <h4 class="font-semibold">Impact & Usefulness (25%)</h4>
-                  <p class="text-gray-300">Potential impact and practical application in the real world.</p>
-                </div>
-                <div>
-                  <h4 class="font-semibold">User Experience (15%)</h4>
-                  <p class="text-gray-300">Usability, design, and overall user experience.</p>
-                </div>
-                <div>
-                  <h4 class="font-semibold">Presentation (10%)</h4>
-                  <p class="text-gray-300">Quality of demo, pitch, and documentation.</p>
-                </div>
-              </div>
-              <h3 class="text-xl font-semibold mb-4">Intellectual Property</h3>
-              <p class="mb-4">
-                Participants retain ownership of their intellectual property. By submitting to the hackathon, you grant the organizers a non-exclusive license to showcase your project for promotional purposes.
-              </p>
-              <h3 class="text-xl font-semibold mb-4">Code of Conduct</h3>
-              <p class="mb-4">
-                All participants are expected to adhere to our code of conduct, which promotes a respectful, inclusive, and collaborative environment. Any form of harassment or inappropriate behavior will not be tolerated and may result in disqualification.
-              </p>
-            </div>
-          </div>
-          <!-- Resources Tab -->
-          <div id="resources" class="tab-content hidden">
-            <h2 class="text-2xl font-bold mb-6">Resources</h2>
-            <div class="space-y-8">
-              <!-- Starter Kits -->
-              <div>
-                <h3 class="text-xl font-semibold mb-4">Starter Kits</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <a href="#" class="glass-dark rounded-2xl p-6 hover:bg-white/5 transition-colors">
-                    <div class="flex items-start gap-4">
-                      <div class="p-3 rounded-lg bg-primary-500/20 text-primary-300">
-                        <i class="fas fa-robot text-2xl"></i>
-                      </div>
-                      <div>
-                        <h4 class="text-lg font-semibold mb-1">AI Assistant Starter</h4>
-                        <p class="text-gray-300 text-sm">Boilerplate code for building conversational AI agents</p>
-                      </div>
-                    </div>
-                  </a>
-                  <a href="#" class="glass-dark rounded-2xl p-6 hover:bg-white/5 transition-colors">
-                    <div class="flex items-start gap-4">
-                      <div class="p-3 rounded-lg bg-secondary-500/20 text-secondary-300">
-                        <i class="fas fa-camera text-2xl"></i>
-                      </div>
-                      <div>
-                        <h4 class="text-lg font-semibold mb-1">Computer Vision Kit</h4>
-                        <p class="text-gray-300 text-sm">Templates for image recognition and processing</p>
-                      </div>
-                    </div>
-                  </a>
-                  <a href="#" class="glass-dark rounded-2xl p-6 hover:bg-white/5 transition-colors">
-                    <div class="flex items-start gap-4">
-                      <div class="p-3 rounded-lg bg-purple-500/20 text-purple-300">
-                        <i class="fas fa-paint-brush text-2xl"></i>
-                      </div>
-                      <div>
-                        <h4 class="text-lg font-semibold mb-1">Generative AI Toolkit</h4>
-                        <p class="text-gray-300 text-sm">Resources for building with generative models</p>
-                      </div>
-                    </div>
-                  </a>
-                  <a href="#" class="glass-dark rounded-2xl p-6 hover:bg-white/5 transition-colors">
-                    <div class="flex items-start gap-4">
-                      <div class="p-3 rounded-lg bg-green-500/20 text-green-300">
-                        <i class="fas fa-globe text-2xl"></i>
-                      </div>
-                      <div>
-                        <h4 class="text-lg font-semibold mb-1">AI for Good Framework</h4>
-                        <p class="text-gray-300 text-sm">Templates for social impact projects</p>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <!-- API Access -->
-              <div>
-                <h3 class="text-xl font-semibold mb-4">Sponsored API Access</h3>
-                <div class="glass-dark rounded-2xl p-6">
-                  <p class="text-gray-300 mb-4">
-                    All registered participants will receive free credits and access to the following APIs and services:
-                  </p>
-                  <ul class="space-y-3">
-                    <li class="flex items-center gap-3">
-                      <img src="https://devpost-archive-prod.s3.amazonaws.com/uploads/organization/image/2/google-logo.png" alt="Google Cloud" class="w-6 h-6 object-contain">
-                      <span>Google Cloud AI & ML Services - $2,000 credits</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                      <img src="https://devpost-archive-prod.s3.amazonaws.com/uploads/organization/image/4/aws-logo.png" alt="AWS" class="w-6 h-6 object-contain">
-                      <span>AWS AI Services - $1,500 credits</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                      <img src="https://devpost-archive-prod.s3.amazonaws.com/uploads/organization/image/3/meta-logo.png" alt="Meta" class="w-6 h-6 object-contain">
-                      <span>Meta AI Research Tools - Premium access</span>
-                    </li>
-                  </ul>
-                  <div class="mt-4">
-                    <a href="#" class="text-secondary-300 hover:text-secondary-400 transition-colors">
-                      View all available resources →
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <!-- Documentation & Tutorials -->
-              <div>
-                <h3 class="text-xl font-semibold mb-4">Documentation & Tutorials</h3>
-                <div class="space-y-4">
-                  <a href="#" class="glass-dark rounded-2xl p-6 block hover:bg-white/5 transition-colors">
-                    <h4 class="text-lg font-semibold mb-2">Getting Started Guide</h4>
-                    <p class="text-gray-300 mb-3">A comprehensive guide to help you get started with the hackathon.</p>
-                    <span class="text-secondary-300">Read guide →</span>
-                  </a>
-                  <a href="#" class="glass-dark rounded-2xl p-6 block hover:bg-white/5 transition-colors">
-                    <h4 class="text-lg font-semibold mb-2">AI Model Training Workshop</h4>
-                    <p class="text-gray-300 mb-3">Learn how to train and fine-tune AI models for your project.</p>
-                    <span class="text-secondary-300">Watch recording →</span>
-                  </a>
-                  <a href="#" class="glass-dark rounded-2xl p-6 block hover:bg-white/5 transition-colors">
-                    <h4 class="text-lg font-semibold mb-2">Submission Guidelines</h4>
-                    <p class="text-gray-300 mb-3">Detailed instructions on how to prepare and submit your project.</p>
-                    <span class="text-secondary-300">View guidelines →</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Timeline Tab -->
-          <div id="timeline" class="tab-content hidden">
-            <h2 class="text-2xl font-bold mb-6">Timeline</h2>
-            <div class="relative">
-              <!-- Timeline Line -->
-              <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-white/20"></div>
-              <!-- Timeline Events -->
-              <div class="space-y-8 relative">
-                <!-- Registration -->
-                <div class="flex gap-6">
-                  <div class="relative">
-                    <div class="w-8 h-8 rounded-full bg-primary-500 flex items-center justify-center z-10 relative">
-                      <i class="fas fa-user-plus text-white"></i>
-                    </div>
-                  </div>
-                  <div class="glass-dark rounded-2xl p-6 flex-1">
-                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
-                      <h3 class="text-lg font-semibold">Registration Opens</h3>
-                      <span class="text-secondary-300 text-sm">April 10, 2025</span>
-                    </div>
-                    <p class="text-gray-300">
-                      Registration opens for individuals and teams. Early registrants get access to exclusive workshops.
-                    </p>
-                  </div>
-                </div>
-                <!-- Kickoff -->
-                <div class="flex gap-6">
-                  <div class="relative">
-                    <div class="w-8 h-8 rounded-full bg-primary-500 flex items-center justify-center z-10 relative">
-                      <i class="fas fa-flag text-white"></i>
-                    </div>
-                  </div>
-                  <div class="glass-dark rounded-2xl p-6 flex-1">
-                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
-                      <h3 class="text-lg font-semibold">Kickoff Event</h3>
-                      <span class="text-secondary-300 text-sm">April 20, 2025</span>
-                    </div>
-                    <p class="text-gray-300">
-                      Virtual kickoff event with keynote speakers, challenge details, and networking opportunities.
-                    </p>
-                  </div>
-                </div>
-                <!-- Workshops -->
-                <div class="flex gap-6">
-                  <div class="relative">
-                    <div class="w-8 h-8 rounded-full bg-primary-500 flex items-center justify-center z-10 relative">
-                      <i class="fas fa-chalkboard-teacher text-white"></i>
-                    </div>
-                  </div>
-                  <div class="glass-dark rounded-2xl p-6 flex-1">
-                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
-                      <h3 class="text-lg font-semibold">Workshop Series</h3>
-                      <span class="text-secondary-300 text-sm">April 22-30, 2025</span>
-                    </div>
-                    <p class="text-gray-300">
-                      Series of technical workshops covering AI fundamentals, model training, and implementation strategies.
-                    </p>
-                  </div>
-                </div>
-                <!-- Hacking Period -->
-                <div class="flex gap-6">
-                  <div class="relative">
-                    <div class="w-8 h-8 rounded-full bg-primary-500 flex items-center justify-center z-10 relative">
-                      <i class="fas fa-code text-white"></i>
-                    </div>
-                  </div>
-                  <div class="glass-dark rounded-2xl p-6 flex-1">
-                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
-                      <h3 class="text-lg font-semibold">Hacking Period</h3>
-                      <span class="text-secondary-300 text-sm">May 1-10, 2025</span>
-                    </div>
-                    <p class="text-gray-300">
-                      Main development period with mentor office hours, check-in sessions, and technical support.
-                    </p>
-                  </div>
-                </div>
-                <!-- Submission Deadline -->
-                <div class="flex gap-6">
-                  <div class="relative">
-                    <div class="w-8 h-8 rounded-full bg-primary-500 flex items-center justify-center z-10 relative">
-                      <i class="fas fa-upload text-white"></i>
-                    </div>
-                  </div>
-                  <div class="glass-dark rounded-2xl p-6 flex-1">
-                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
-                      <h3 class="text-lg font-semibold">Submission Deadline</h3>
-                      <span class="text-secondary-300 text-sm">May 10, 2025 (11:59 PM PT)</span>
-                    </div>
-                    <p class="text-gray-300">
-                      Final deadline for project submissions, including code, demo video, and documentation.
-                    </p>
-                  </div>
-                </div>
-                <!-- Judging Period -->
-                <div class="flex gap-6">
-                  <div class="relative">
-                    <div class="w-8 h-8 rounded-full bg-primary-500 flex items-center justify-center z-10 relative">
-                      <i class="fas fa-gavel text-white"></i>
-                    </div>
-                  </div>
-                  <div class="glass-dark rounded-2xl p-6 flex-1">
-                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
-                      <h3 class="text-lg font-semibold">Judging Period</h3>
-                      <span class="text-secondary-300 text-sm">May 11-14, 2025</span>
-                    </div>
-                    <p class="text-gray-300">
-                      Judges review submissions and select finalists for the Demo Day.
-                    </p>
-                  </div>
-                </div>
-                <!-- Demo Day -->
-                <div class="flex gap-6">
-                  <div class="relative">
-                    <div class="w-8 h-8 rounded-full bg-primary-500 flex items-center justify-center z-10 relative">
-                      <i class="fas fa-trophy text-white"></i>
-                    </div>
-                  </div>
-                  <div class="glass-dark rounded-2xl p-6 flex-1">
-                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
-                      <h3 class="text-lg font-semibold">Demo Day & Awards</h3>
-                      <span class="text-secondary-300 text-sm">May 15, 2025</span>
-                    </div>
-                    <p class="text-gray-300">
-                      Hybrid event (online + San Francisco) featuring finalist presentations, awards ceremony, and networking.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- FAQ Tab -->
-          <div id="faq" class="tab-content hidden">
-            <h2 class="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
-            <div class="space-y-4">
-              <div class="glass-dark rounded-2xl overflow-hidden">
-                <button class="faq-question w-full text-left p-6 flex justify-between items-center">
-                  <span class="font-semibold">Do I need to have AI/ML experience to participate?</span>
-                  <i class="fas fa-chevron-down text-gray-400 transition-transform"></i>
-                </button>
-                <div class="faq-answer px-6 pb-6 hidden">
-                  <p class="text-gray-300">
-                    No, participants of all skill levels are welcome! We have beginner-friendly tracks and resources to help you get started with AI. We also encourage forming diverse teams with varying skill sets.
-                  </p>
-                </div>
-              </div>
-              <div class="glass-dark rounded-2xl overflow-hidden">
-                <button class="faq-question w-full text-left p-6 flex justify-between items-center">
-                  <span class="font-semibold">Can I participate as an individual or do I need a team?</span>
-                  <i class="fas fa-chevron-down text-gray-400 transition-transform"></i>
-                </button>
-                <div class="faq-answer px-6 pb-6 hidden">
-                  <p class="text-gray-300">
-                    You can participate either as an individual or as part of a team of up to 5 members. We have a team formation platform to help you find teammates with complementary skills if you're looking to join a team.
-                  </p>
-                </div>
-              </div>
-              <div class="glass-dark rounded-2xl overflow-hidden">
-                <button class="faq-question w-full text-left p-6 flex justify-between items-center">
-                  <span class="font-semibold">Is there a registration fee?</span>
-                  <i class="fas fa-chevron-down text-gray-400 transition-transform"></i>
-                </button>
-                <div class="faq-answer px-6 pb-6 hidden">
-                  <p class="text-gray-300">
-                    No, participation in the AI Innovation Challenge is completely free. All you need to do is register before the deadline.
-                  </p>
-                </div>
-              </div>
-              <div class="glass-dark rounded-2xl overflow-hidden">
-                <button class="faq-question w-full text-left p-6 flex justify-between items-center">
-                  <span class="font-semibold">Do I need to attend the in-person event in San Francisco?</span>
-                  <i class="fas fa-chevron-down text-gray-400 transition-transform"></i>
-                </button>
-                <div class="faq-answer px-6 pb-6 hidden">
-                  <p class="text-gray-300">
-                    No, the hackathon is primarily virtual, and you can participate from anywhere in the world. The final Demo Day will be hybrid, with options for both in-person and virtual presentations.
-                  </p>
-                </div>
-              </div>
-              <div class="glass-dark rounded-2xl overflow-hidden">
-                <button class="faq-question w-full text-left p-6 flex justify-between items-center">
-                  <span class="font-semibold">Can I use pre-existing code or models?</span>
-                  <i class="fas fa-chevron-down text-gray-400 transition-transform"></i>
-                </button>
-                <div class="faq-answer px-6 pb-6 hidden">
-                  <p class="text-gray-300">
-                    You can use publicly available libraries, frameworks, and pre-trained models as long as they are properly credited. However, the core of your project should be developed during the hackathon period.
-                  </p>
-                </div>
-              </div>
-              <div class="glass-dark rounded-2xl overflow-hidden">
-                <button class="faq-question w-full text-left p-6 flex justify-between items-center">
-                  <span class="font-semibold">How will the judging process work?</span>
-                  <i class="fas fa-chevron-down text-gray-400 transition-transform"></i>
-                </button>
-                <div class="faq-answer px-6 pb-6 hidden">
-                  <p class="text-gray-300">
-                    Projects will be evaluated based on innovation, technical implementation, impact, user experience, and presentation. Our panel of judges includes AI experts, industry leaders, and venture capitalists.
-                  </p>
-                </div>
-              </div>
-              <div class="glass-dark rounded-2xl overflow-hidden">
-                <button class="faq-question w-full text-left p-6 flex justify-between items-center">
-                  <span class="font-semibold">Will there be mentorship available during the hackathon?</span>
-                  <i class="fas fa-chevron-down text-gray-400 transition-transform"></i>
-                </button>
-                <div class="faq-answer px-6 pb-6 hidden">
-                  <p class="text-gray-300">
-                    Yes, we'll have mentors from leading tech companies available throughout the hackathon to provide guidance, technical support, and feedback on your projects.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="mt-8 text-center">
-              <p class="text-gray-300 mb-4">Don't see your question answered here?</p>
-              <a href="#" class="inline-flex items-center gap-2 px-6 py-3 rounded-full glass hover:bg-white/20 transition-colors">
-                <i class="fas fa-envelope"></i>
-                <span>Contact the organizers</span>
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Registration Section -->
-        <div id="register" class="glass rounded-2xl p-6 md:p-8 mb-8">
-          <h2 class="text-2xl font-bold mb-6">Register for the Challenge</h2>
-          <div class="flex flex-col md:flex-row gap-8">
-            <div class="w-full md:w-1/2">
-              <p class="text-gray-300 mb-6">
-                Join thousands of developers and AI enthusiasts in this exciting opportunity to showcase your skills, learn from experts, and win amazing prizes.
-              </p>
-              <div class="space-y-4 mb-6">
-                <div class="flex items-start gap-3">
-                  <div class="p-2 rounded-full bg-secondary-500/20 text-secondary-300 mt-1">
-                    <i class="fas fa-check"></i>
-                  </div>
-                  <div>
-                    <h4 class="font-semibold">Free Registration</h4>
-                    <p class="text-gray-300 text-sm">No cost to participate in the challenge</p>
-                  </div>
-                </div>
-                <div class="flex items-start gap-3">
-                  <div class="p-2 rounded-full bg-secondary-500/20 text-secondary-300 mt-1">
-                    <i class="fas fa-check"></i>
-                  </div>
-                  <div>
-                    <h4 class="font-semibold">$75,000 in Prizes</h4>
-                    <p class="text-gray-300 text-sm">Cash prizes, cloud credits, and more</p>
-                  </div>
-                </div>
-                <div class="flex items-start gap-3">
-                  <div class="p-2 rounded-full bg-secondary-500/20 text-secondary-300 mt-1">
-                    <i class="fas fa-check"></i>
-                  </div>
-                  <div>
-                    <h4 class="font-semibold">Expert Mentorship</h4>
-                    <p class="text-gray-300 text-sm">Guidance from industry leaders</p>
-                  </div>
-                </div>
-                <div class="flex items-start gap-3">
-                  <div class="p-2 rounded-full bg-secondary-500/20 text-secondary-300 mt-1">
-                    <i class="fas fa-check"></i>
-                  </div>
-                  <div>
-                    <h4 class="font-semibold">Networking Opportunities</h4>
-                    <p class="text-gray-300 text-sm">Connect with peers and potential employers</p>
-                  </div>
-                </div>
-              </div>
-              <div class="flex items-center gap-2 text-gray-300 text-sm mb-6">
-                <i class="fas fa-clock"></i>
-                <span>Registration closes in 15 days</span>
-              </div>
-            </div>
-            <div class="w-full md:w-1/2">
-              <form class="space-y-4">
-                <div>
-                  <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Full Name</label>
-                  <input 
-                                  type="text" 
-                                  id="name" 
-                                  class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-secondary-400 text-white"
-                                  placeholder="Enter your full name"
-                              />
-                </div>
-                <div>
-                  <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email Address</label>
-                  <input 
-                                  type="email" 
-                                  id="email" 
-                                  class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-secondary-400 text-white"
-                                  placeholder="Enter your email address"
-                              />
-                </div>
-                <div>
-                  <label for="participation" class="block text-sm font-medium text-gray-300 mb-1">Participation Type</label>
-                  <select 
-                                  id="participation" 
-                                  class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 appearance-none focus:outline-none focus:ring-2 focus:ring-secondary-400 text-white"
-                              >
-                    <option value="" disabled selected>Select your participation type</option>
-                    <option value="individual">Individual Participant</option>
-                    <option value="team-create">Create a New Team</option>
-                    <option value="team-join">Join an Existing Team</option>
-                  </select>
-                </div>
-                <div>
-                  <label for="experience" class="block text-sm font-medium text-gray-300 mb-1">AI/ML Experience Level</label>
-                  <select 
-                                  id="experience" 
-                                  class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 appearance-none focus:outline-none focus:ring-2 focus:ring-secondary-400 text-white"
-                              >
-                    <option value="" disabled selected>Select your experience level</option>
-                    <option value="beginner">Beginner (New to AI/ML)</option>
-                    <option value="intermediate">Intermediate (Some experience)</option>
-                    <option value="advanced">Advanced (Experienced practitioner)</option>
-                  </select>
-                </div>
-                <div class="pt-2">
-                  <button type="submit" class="w-full py-3 rounded-lg bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 transition-colors font-medium">
-                    Register Now
-                  </button>
-                </div>
-                <p class="text-xs text-gray-400 text-center">
-                  By registering, you agree to our <a href="#" class="text-secondary-300 hover:text-secondary-400 transition-colors">Terms of Service</a> and <a href="#" class="text-secondary-300 hover:text-secondary-400 transition-colors">Privacy Policy</a>.
-                </p>
-              </form>
-            </div>
-          </div>
-        </div>
-        <!-- Discussion Section -->
-        <div class="glass rounded-2xl p-6 md:p-8">
-          <div class="flex justify-between items-center mb-6">
-            <h2 class="text-2xl font-bold">Discussion</h2>
-            <span class="text-gray-300 text-sm">42 comments</span>
-          </div>
-          <!-- Comment Form -->
-          <div class="mb-8">
-            <div class="flex gap-4  -->
-              <div class="mb-8">
-                <div class="flex gap-4">
-                  <img 
-                          src="https://placeholder.svg?height=40&width=40" 
-                          alt="User avatar" 
-                          class="w-10 h-10 rounded-full"
-                      />
-                  <div class="flex-1">
-                    <textarea 
-                              placeholder="Join the discussion..." 
-                              class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-secondary-400 text-white resize-none h-24"
-                          ></textarea>
-                    <div class="flex justify-end mt-2">
-                      <button class="px-4 py-2 rounded-lg bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 transition-colors text-sm font-medium">
-                        Post Comment
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Comments List -->
-              <div class="space-y-6">
-                <!-- Comment 1 -->
-                <div class="flex gap-4">
-                  <img 
-                          src="https://placeholder.svg?height=40&width=40" 
-                          alt="User avatar" 
-                          class="w-10 h-10 rounded-full"
-                      />
-                  <div>
-                    <div class="flex items-center gap-2 mb-1">
-                      <span class="font-semibold">Alex Johnson</span>
-                      <span class="text-gray-400 text-xs">2 days ago</span>
-                    </div>
-                    <p class="text-gray-300 mb-2">
-                      Is there a Discord server or Slack channel where participants can connect and form teams?
-                    </p>
-                    <div class="flex items-center gap-4 text-sm">
-                      <button class="text-gray-400 hover:text-secondary-300 transition-colors flex items-center gap-1">
-                        <i class="far fa-thumbs-up"></i>
-                        <span>12</span>
-                      </button>
-                      <button class="text-gray-400 hover:text-secondary-300 transition-colors">
-                        Reply
-                      </button>
-                    </div>
-                    <!-- Reply -->
-                    <div class="mt-4 ml-6 flex gap-4">
-                      <img 
-                                  src="https://placeholder.svg?height=40&width=40" 
-                                  alt="Organizer avatar" 
-                                  class="w-8 h-8 rounded-full"
-                              />
-                      <div>
-                        <div class="flex items-center gap-2 mb-1">
-                          <span class="font-semibold">Zelos Team</span>
-                          <span class="bg-primary-500/20 text-primary-300 text-xs px-2 py-0.5 rounded-full">Organizer</span>
-                          <span class="text-gray-400 text-xs">1 day ago</span>
-                        </div>
-                        <p class="text-gray-300 mb-2">
-                          Yes! We have a Discord server for all participants. You'll receive an invite link after registration.
-                        </p>
-                        <div class="flex items-center gap-4 text-sm">
-                          <button class="text-gray-400 hover:text-secondary-300 transition-colors flex items-center gap-1">
-                            <i class="far fa-thumbs-up"></i>
-                            <span>5</span>
-                          </button>
-                          <button class="text-gray-400 hover:text-secondary-300 transition-colors">
-                            Reply
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- Comment 2 -->
-                <div class="flex gap-4">
-                  <img 
-                          src="https://placeholder.svg?height=40&width=40" 
-                          alt="User avatar" 
-                          class="w-10 h-10 rounded-full"
-                      />
-                  <div>
-                    <div class="flex items-center gap-2 mb-1">
-                      <span class="font-semibold">Maya Patel</span>
-                      <span class="text-gray-400 text-xs">1 day ago</span>
-                    </div>
-                    <p class="text-gray-300 mb-2">
-                      I'm excited about the AI for Good track! Will there be any specific datasets or problem statements provided for this track?
-                    </p>
-                    <div class="flex items-center gap-4 text-sm">
-                      <button class="text-gray-400 hover:text-secondary-300 transition-colors flex items-center gap-1">
-                        <i class="far fa-thumbs-up"></i>
-                        <span>8</span>
-                      </button>
-                      <button class="text-gray-400 hover:text-secondary-300 transition-colors">
-                        Reply
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- View More Comments -->
-              <div class="mt-6 text-center">
-                <button class="px-6 py-2 rounded-full glass hover:bg-white/20 transition-colors text-secondary-300">
-                  View all 42 comments
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- Right Column (Sidebar) -->
-          <div class="w-full lg:w-1/3 space-y-8">
-            <!-- Countdown Timer -->
-            <div class="glass rounded-2xl p-6">
-              <h3 class="text-xl font-semibold mb-4">Time Remaining</h3>
-              <div class="grid grid-cols-4 gap-2 text-center">
-                <div class="glass-dark rounded-lg p-3">
-                  <div class="text-3xl font-bold text-secondary-300" id="days-count">15</div>
-                  <div class="text-xs text-gray-400">Days</div>
-                </div>
-                <div class="glass-dark rounded-lg p-3">
-                  <div class="text-3xl font-bold text-secondary-300" id="hours-count">07</div>
-                  <div class="text-xs text-gray-400">Hours</div>
-                </div>
-                <div class="glass-dark rounded-lg p-3">
-                  <div class="text-3xl font-bold text-secondary-300" id="minutes-count">22</div>
-                  <div class="text-xs text-gray-400">Minutes</div>
-                </div>
-                <div class="glass-dark rounded-lg p-3">
-                  <div class="text-3xl font-bold text-secondary-300" id="seconds-count">41</div>
-                  <div class="text-xs text-gray-400">Seconds</div>
-                </div>
-              </div>
-              <div class="mt-4 text-center">
-                <span class="text-sm text-gray-300">until submission deadline</span>
-              </div>
-            </div>
-            <!-- Organizers -->
-            <div class="glass rounded-2xl p-6">
-              <h3 class="text-xl font-semibold mb-4">Organizers</h3>
-              <div class="space-y-4">
-                <div class="flex items-center gap-3">
-                  <img src="https://devpost-archive-prod.s3.amazonaws.com/uploads/organization/image/2/google-logo.png" alt="Google" class="w-10 h-10 object-contain">
-                  <div>
-                    <div class="font-medium">Google</div>
-                    <div class="text-sm text-gray-400">Lead Sponsor</div>
-                  </div>
-                </div>
-                <div class="flex items-center gap-3">
-                  <img src="https://devpost-archive-prod.s3.amazonaws.com/uploads/organization/image/3/meta-logo.png" alt="Meta" class="w-10 h-10 object-contain">
-                  <div>
-                    <div class="font-medium">Meta</div>
-                    <div class="text-sm text-gray-400">Co-Sponsor</div>
-                  </div>
-                </div>
-                <div class="flex items-center gap-3">
-                  <img src="https://devpost-archive-prod.s3.amazonaws.com/uploads/organization/image/4/aws-logo.png" alt="AWS" class="w-10 h-10 object-contain">
-                  <div>
-                    <div class="font-medium">AWS</div>
-                    <div class="text-sm text-gray-400">Co-Sponsor</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Team Formation -->
-            <div class="glass rounded-2xl p-6">
-              <h3 class="text-xl font-semibold mb-4">Looking for a Team?</h3>
-              <p class="text-gray-300 mb-4">
-                Connect with other participants and form a team to collaborate on your project.
-              </p>
-              <div class="space-y-3 mb-4">
-                <a href="#" class="flex items-center justify-between p-3 glass-dark rounded-lg hover:bg-white/5 transition-colors">
-                  <div class="flex items-center gap-3">
-                    <i class="fas fa-users text-secondary-300"></i>
-                    <span>Team Formation Platform</span>
-                  </div>
-                  <i class="fas fa-chevron-right text-gray-400"></i>
-                </a>
-                <a href="#" class="flex items-center justify-between p-3 glass-dark rounded-lg hover:bg-white/5 transition-colors">
-                  <div class="flex items-center gap-3">
-                    <i class="fab fa-discord text-secondary-300"></i>
-                    <span>Discord Community</span>
-                  </div>
-                  <i class="fas fa-chevron-right text-gray-400"></i>
-                </a>
-                <a href="#" class="flex items-center justify-between p-3 glass-dark rounded-lg hover:bg-white/5 transition-colors">
-                  <div class="flex items-center gap-3">
-                    <i class="fas fa-calendar-alt text-secondary-300"></i>
-                    <span>Team Matching Events</span>
-                  </div>
-                  <i class="fas fa-chevron-right text-gray-400"></i>
-                </a>
-              </div>
-            </div>
-            <!-- Upcoming Events -->
-            <div class="glass rounded-2xl p-6">
-              <h3 class="text-xl font-semibold mb-4">Upcoming Events</h3>
-              <div class="space-y-4">
-                <div class="glass-dark rounded-lg p-4">
-                  <div class="flex items-center gap-3 mb-2">
-                    <div class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary-500/20 text-primary-300">
-                      <i class="fas fa-chalkboard-teacher"></i>
-                    </div>
-                    <div>
-                      <div class="font-medium">AI Model Training Workshop</div>
-                      <div class="text-sm text-gray-400">Apr 22, 2025 • 2:00 PM PT</div>
-                    </div>
-                  </div>
-                  <a href="#" class="text-sm text-secondary-300 hover:text-secondary-400 transition-colors">
-                    Add to calendar →
-                  </a>
-                </div>
-                <div class="glass-dark rounded-lg p-4">
-                  <div class="flex items-center gap-3 mb-2">
-                    <div class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary-500/20 text-primary-300">
-                      <i class="fas fa-users"></i>
-                    </div>
-                    <div>
-                      <div class="font-medium">Team Formation Mixer</div>
-                      <div class="text-sm text-gray-400">Apr 25, 2025 • 5:00 PM PT</div>
-                    </div>
-                  </div>
-                  <a href="#" class="text-sm text-secondary-300 hover:text-secondary-400 transition-colors">
-                    Add to calendar →
-                  </a>
-                </div>
-                <div class="glass-dark rounded-lg p-4">
-                  <div class="flex items-center gap-3 mb-2">
-                    <div class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary-500/20 text-primary-300">
-                      <i class="fas fa-question-circle"></i>
-                    </div>
-                    <div>
-                      <div class="font-medium">Q&A with Judges</div>
-                      <div class="text-sm text-gray-400">Apr 28, 2025 • 3:00 PM PT</div>
-                    </div>
-                  </div>
-                  <a href="#" class="text-sm text-secondary-300 hover:text-secondary-400 transition-colors">
-                    Add to calendar →
-                  </a>
-                </div>
-              </div>
-              <div class="mt-4 text-center">
-                <a href="#" class="text-sm text-secondary-300 hover:text-secondary-400 transition-colors">
-                  View all events →
-                </a>
-              </div>
-            </div>
-            <!-- Share Widget -->
-            <div class="glass rounded-2xl p-6">
-              <h3 class="text-xl font-semibold mb-4">Share This Challenge</h3>
-              <div class="flex justify-center gap-4">
-                <a href="#" class="p-3 rounded-full glass-dark hover:bg-white/10 transition-colors text-blue-400">
-                  <i class="fab fa-twitter text-xl"></i>
-                </a>
-                <a href="#" class="p-3 rounded-full glass-dark hover:bg-white/10 transition-colors text-blue-600">
-                  <i class="fab fa-facebook-f text-xl"></i>
-                </a>
-                <a href="#" class="p-3 rounded-full glass-dark hover:bg-white/10 transition-colors text-blue-500">
-                  <i class="fab fa-linkedin-in text-xl"></i>
-                </a>
-                <a href="#" class="p-3 rounded-full glass-dark hover:bg-white/10 transition-colors text-pink-500">
-                  <i class="fab fa-instagram text-xl"></i>
-                </a>
-                <a href="#" class="p-3 rounded-full glass-dark hover:bg-white/10 transition-colors text-gray-300">
-                  <i class="fas fa-envelope text-xl"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
+  </div>
+</div>
